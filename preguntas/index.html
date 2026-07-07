@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGE - Preguntas de Investigación | IE Rafael Uribe Uribe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: #1e293b;
+            --bg-card-hover: #263348;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-violet: #8b5cf6;
+            --accent-emerald: #10b981;
+            --accent-pink: #ec4899;
+            --glow-blue: rgba(59, 130, 246, 0.4);
+            --glow-cyan: rgba(6, 182, 212, 0.4);
+            --glow-violet: rgba(139, 92, 246, 0.4);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 3rem;
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 0 30px var(--glow-blue);
+        }
+
+        .logo-text h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Stats */
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Filters */
+        .filters-section {
+            position: relative;
+            z-index: 10;
+            padding: 1.5rem 3rem;
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .filters-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .filter-btn {
+            padding: 0.875rem 2rem;
+            border: 2px solid var(--border-subtle);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px var(--glow-blue);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 30px var(--glow-blue);
+        }
+
+        .filter-btn.active[data-grade="10"] {
+            background: linear-gradient(135deg, var(--accent-emerald), var(--accent-cyan));
+            box-shadow: 0 4px 30px var(--glow-cyan);
+        }
+
+        .search-box {
+            margin-left: auto;
+            position: relative;
+        }
+
+        .search-input {
+            padding: 0.875rem 1.25rem 0.875rem 3rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border-subtle);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            width: 300px;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px var(--glow-cyan);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Main content */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 3rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card */
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            transition: all 0.4s var(--transition-smooth);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-violet));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                        0 0 40px var(--glow-blue);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card[data-grade="10"]::before {
+            background: linear-gradient(90deg, var(--accent-emerald), var(--accent-cyan));
+        }
+
+        .card[data-grade="10"]:hover {
+            border-color: rgba(16, 185, 129, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                        0 0 40px var(--glow-cyan);
+        }
+
+        .card-header {
+            padding: 1.5rem 1.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .grade-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        .grade-badge.grade-11 {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            color: var(--accent-violet);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .grade-badge.grade-10 {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        .card-body {
+            padding: 0 1.75rem 1.5rem;
+        }
+
+        .team-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding: 0.875rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .team-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .team-names {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Expandable sections */
+        .expandable-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s var(--transition-smooth),
+                        opacity 0.3s var(--transition-smooth),
+                        padding 0.3s var(--transition-smooth);
+            opacity: 0;
+        }
+
+        .card.expanded .expandable-section {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .question-section {
+            padding: 1.25rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .card[data-grade="10"] .question-section {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
+            border-left-color: var(--accent-emerald);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-cyan);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .feedback-section {
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-violet);
+        }
+
+        .feedback-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .expand-hint {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .card:hover .expand-hint {
+            color: var(--accent-cyan);
+        }
+
+        .expand-arrow {
+            transition: transform 0.3s var(--transition-smooth);
+        }
+
+        .card.expanded .expand-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: 2rem;
+        }
+
+        .footer-highlight {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem;
+            }
+
+            .filters-section {
+                padding: 1rem 1.5rem;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats-bar {
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                margin-left: 0;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s var(--transition-smooth) forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.15s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+        .card:nth-child(4) { animation-delay: 0.25s; }
+        .card:nth-child(5) { animation-delay: 0.3s; }
+        .card:nth-child(6) { animation-delay: 0.35s; }
+        .card:nth-child(7) { animation-delay: 0.4s; }
+
+        /* No results */
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .no-results-text {
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">🎓</div>
+                <div class="logo-text">
+                    <h1>Preguntas de Investigación</h1>
+                    <p>Sistema de Gestión Escolar — IE Rafael Uribe Uribe</p>
+                </div>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value" id="totalProjects">14</div>
+                    <div class="stat-label">Proyectos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="totalStudents">21</div>
+                    <div class="stat-label">Estudiantes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Grados</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="filters-section">
+        <div class="filters-container">
+            <span class="filter-label">Filtrar por grado:</span>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-grade="all">Todos</button>
+                <button class="filter-btn" data-grade="11">Grado 11°</button>
+                <button class="filter-btn" data-grade="10">Grado 10°</button>
+            </div>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="Buscar proyecto o estudiante..." id="searchInput">
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="cards-grid" id="cardsGrid">
+            <!-- Cards will be rendered by JavaScript -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p><span class="footer-highlight">IE Rafael Uribe Uribe</span> — Sistema de Gestión Escolar — Comité Directivo 2025</p>
+    </footer>
+
+    <script>
+        // Data from Google Sheets
+        const projects = [
+            // Grado 11
+            {
+                id: 1,
+                grade: 11,
+                group: "11-1",
+                title: "TikTok y Participación Política Juvenil",
+                members: ["Samuel Angel Alvarez", "Luz Valentina Jimenez Marquez"],
+                question: "¿De qué manera el contenido político consumido en TikTok influyó en la intención de voto de los jóvenes de 18 a 24 años en la ciudad de Medellín durante las elecciones presidenciales de 2022?",
+                feedback: "Excelente pregunta, muy concreta y actual. Sugiero delimitarla aún más: especificar si analizarán un período electoral concreto (ej. segunda vuelta) y considerar incluir el concepto de 'desinformación' como variable. También recomiendo revisar estudios previos sobre voto juvenil en Colombia (MOE, Registraduría)."
+            },
+            {
+                id: 2,
+                grade: 11,
+                group: "11-1",
+                title: "Cultura Ciudadana y Reciclaje Escolar",
+                members: ["Isabella Gallego Falla"],
+                question: "¿Qué estrategia se puede tomar en el colegio para fomentar la cultura ciudadana en reciclaje?",
+                feedback: "Buena pregunta aplicada al contexto escolar. Para fortalecerla, sugiere convertirla en una pregunta investigable: ¿Cuál es el efecto de una campaña de separación de residuos en la I.E. Rafael Uribe Uribe sobre la disposición de reciclaje de los estudiantes? Esto permite medir impacto. También recomiendo precisar qué entienden por 'cultura ciudadana'."
+            },
+            {
+                id: 3,
+                grade: 11,
+                group: "11-1",
+                title: "Escritura, Arte y Emociones Juveniles",
+                members: ["Ana Sofia Villada Ochoa"],
+                question: "¿Cómo influye la escritura y el arte en las emociones de las jóvenes y en la sociedad?",
+                feedback: "Buena aproximación, pero la pregunta es muy amplia. Sugiero enfocar el sujeto: ¿en las emociones de las jóvenes de 11° de la IERUU? y especificar qué tipo de escritura/arte (narrativa, poesía, artes plásticas). También recomiendo revisar autoras como Martha Nussbaum (emociones y narrativa) para dar soporte teórico."
+            },
+            {
+                id: 4,
+                grade: 11,
+                group: "11-1",
+                title: "Inteligencia Artificial y Salud Mental",
+                members: ["Daniela Alejandra Olivares Hernandez", "Xiomara Castrillon Ospina"],
+                question: "¿Cómo afecta el uso excesivo de la IA la confianza y la salud mental de los estudiantes?",
+                feedback: "Pregunta muy pertinente y de gran actualidad. Para fortalecerla, sugiero: 1) Definir qué entienden por 'uso excesivo' (horas diarias, tipos de uso), 2) Especificar la población: estudiantes de qué grado/nivel, 3) Incluir una variable mediadora como 'autonomía académica'. El título 'Equilibrio digital' es atractivo pero aseguren que la pregunta refleje el problema medible."
+            },
+            {
+                id: 5,
+                grade: 11,
+                group: "11-1",
+                title: "Neuralink: Implicaciones del Chip N1",
+                members: ["Emanuel Lopera Bolivar"],
+                question: "¿Cuáles son las implicaciones de usar el Chip N1 de Neuralink?",
+                feedback: "Pregunta interesante y con potencial interdisciplinario. Sin embargo, es muy amplia para un anteproyecto escolar. Sugiero enfocar: ¿Cuáles son las implicaciones éticas del Chip N1 de Neuralink en pacientes con parálisis? o bien ¿Qué tan viable es su implementación en Colombia? Esto acota la investigación y permite profundizar. Incluir fuentes de bioética sería valioso."
+            },
+            {
+                id: 6,
+                grade: 11,
+                group: "11-1",
+                title: "Bullying y Convivencia Escolar",
+                members: ["Juan Jose Arango Cano"],
+                question: "¿Cómo afecta el bullying o acoso escolar la convivencia del colegio Rafael Uribe Uribe?",
+                feedback: "Buena pregunta contextualizada en la institución. Sugiero: 1) Especificar el tipo de bullying (físico, verbal, virtual), 2) Incluir indicadores de convivencia (manual de convivencia, reportes de orientación), 3) Considerar la perspectiva de víctimas, agresores Y espectadores (como ya aparece en tus objetivos). Recomiendo usar el cuestionario CISNEROS como referente metodológico."
+            },
+            {
+                id: 7,
+                grade: 11,
+                group: "11-1",
+                title: "Concentración y Atención en el Aula",
+                members: ["Matias Acosta Palacio"],
+                question: "¿Por qué a los estudiantes les cuesta concentrarse en clase?",
+                feedback: "Pregunta clara y relevante para el contexto escolar. Para darle mayor rigor investigativo, sugiero: 1) Convertirla en una pregunta de investigación: ¿Cuáles son los principales factores que afectan la concentración de los estudiantes de 11° durante las clases en la IERUU? 2) Diferenciar entre factores internos (sueño, motivación) y externos (ruido, celular, metodología docente) - esto ya lo esbozas en tus objetivos secundarios. Bien!"
+            },
+            // Grado 10
+            {
+                id: 8,
+                grade: 10,
+                group: "10-1",
+                title: "Salud Mental en Adolescentes",
+                members: ["Jerónimo Muñoz Ramírez", "Juan José Castaño Giraldo"],
+                question: "¿Cuáles son los principales factores que afectan la salud mental de los adolescentes y cómo influyen en su bienestar emocional, social y académico?",
+                feedback: "Pregunta clara y bien delimitada. Para fortalecerla: (1) Delimite la población geográficamente (ej. 'en instituciones educativas de Medellín'). (2) Considere agregar una variable comparativa o temporal (ej. 'en el último año'). (3) La pregunta es amplia; podrían enfocarse en un factor específico como redes sociales o presión académica para hacer el estudio más viable."
+            },
+            {
+                id: 9,
+                grade: 10,
+                group: "10-1",
+                title: "Conflicto Armado y Respuesta Institucional",
+                members: ["Miguel Ángel Osorio Puerta"],
+                question: "¿Cuáles son las causas principales y las dinámicas del conflicto entre el Estado y los delincuentes en Colombia, y cómo han respondido las instituciones estatales para prevenir, controlar y reparar sus efectos en las zonas más afectadas?",
+                feedback: "Pregunta sólida con doble enfoque (causas + respuestas). Fortalecimiento: (1) Delimite el período temporal (2015-2025 según su justificación). (2) Especifique qué 'delincuentes' (bandas criminales, BACRIM, etc.). (3) Defina las 'zonas más afectadas' para acotar el estudio."
+            },
+            {
+                id: 10,
+                grade: 10,
+                group: "10-1",
+                title: "Ludopatía y Juventud",
+                members: ["Jerónimo Clavijo Buitrago"],
+                question: "¿Cómo afecta la ludopatía a los jóvenes y cuáles son las principales consecuencias que genera en su vida personal, social y económica?",
+                feedback: "Pregunta relevante y actual. Para mejorar: (1) Delimite la edad (ej. 'jóvenes entre 14 y 18 años'). (2) Especifique el contexto (instituciones educativas de Medellín). (3) Considere enfocar en un tipo específico de ludopatía (apuestas en línea vs. casinos) para mayor viabilidad."
+            },
+            {
+                id: 11,
+                grade: 10,
+                group: "10-1",
+                title: "Drogadicción en la IERUU",
+                members: ["Zoe Amelie Restrepo Rojas", "Karime Isabella Caro Osorio"],
+                question: "¿Cómo afecta la drogadicción la vida personal, familiar, social y académica de los adolescentes de la I.E. Rafael Uribe Uribe de Medellín?",
+                feedback: "Excelente delimitación geográfica (IE específica). Fortalecimiento: (1) Especifique qué tipo de sustancias o si es consumo general. (2) Considere agregar un recorte temporal. (3) Podrían enfocar en un aspecto específico de la vida (familiar o académica) para mayor profundidad."
+            },
+            {
+                id: 12,
+                grade: 10,
+                group: "10-1",
+                title: "Música como Resistencia Cultural",
+                members: ["Juan Manuel Rodríguez Restrepo", "Miguel Ángel Cortés Martínez", "Juan Sebastián Berrio Amariles"],
+                question: "¿De qué manera la música funciona como una herramienta de resistencia cultural y preservación de la memoria histórica en la comunidad?",
+                feedback: "Pregunta con enfoque sociológico muy interesante. Fortalecimiento: (1) Delimite 'la comunidad' (¿qué comunidad específicamente?). (2) Especifique qué tipo de música o género. (3) Defina el período o contexto histórico. (4) La pregunta es ambiciosa; consideren acotar para que sea viable en el tiempo escolar."
+            },
+            {
+                id: 13,
+                grade: 10,
+                group: "10-1",
+                title: "Salud Mental en Deportistas Adolescentes",
+                members: ["María Paz Acosta Palacio"],
+                question: "¿Cómo afectan la presión competitiva y las expectativas externas a la salud mental y al rendimiento deportivo de los deportistas adolescentes entre 12 y 18 años de Medellín?",
+                feedback: "Pregunta muy bien construida: delimita población, contexto y variables. Fortalecimiento: (1) Especifique qué deportes o tipo de competencia. (2) Considere agregar una dimensión temporal. (3) Podría incluir un elemento comparativo (deportistas vs. no deportistas)."
+            },
+            {
+                id: 14,
+                grade: 10,
+                group: "10-1",
+                title: "Redes Sociales y Autoestima Juvenil",
+                members: ["Alexandra Ortiz Álvarez", "María Camila Agudelo Oliveros"],
+                question: "¿Cómo afecta el uso de las redes sociales a la relación entre compañeros de clase y de qué manera influyen los comentarios negativos en la autoestima de los alumnos de séptimo grado?",
+                feedback: "Pregunta pertinente con doble pregunta (uso de redes + autoestima). Fortalecimiento: (1) Unifique en una sola pregunta de investigación para mayor claridad. (2) Especifique qué redes sociales. (3) Delimite el período de estudio. (4) Considere si es comparativo (con vs. sin redes sociales)."
+            }
+        ];
+
+        // Render cards
+        function renderCards(filteredProjects) {
+            const grid = document.getElementById('cardsGrid');
+            
+            if (filteredProjects.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <div class="no-results-text">No se encontraron proyectos</div>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filteredProjects.map((project, index) => `
+                <div class="card" data-grade="${project.grade}" data-id="${project.id}" style="animation-delay: ${0.1 + index * 0.05}s">
+                    <div class="card-header">
+                        <div class="grade-badge grade-${project.grade}">
+                            ${project.group}
+                        </div>
+                        <h3 class="card-title">${project.title}</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="team-section">
+                            <div class="team-icon">👥</div>
+                            <div class="team-names">${project.members.join(', ')}</div>
+                        </div>
+                        
+                        <div class="expandable-section">
+                            <div class="question-section">
+                                <div class="section-label">
+                                    <span>❓</span> Pregunta de Investigación
+                                </div>
+                                <div class="question-text">${project.question}</div>
+                            </div>
+                            
+                            <div class="feedback-section">
+                                <div class="section-label">
+                                    <span>💬</span> Retroalimentación del Asesor
+                                </div>
+                                <div class="feedback-text">${project.feedback}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="expand-hint">
+                            <span class="expand-arrow">▼</span>
+                            <span>Haz clic para ver pregunta y retroalimentación</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click listeners
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', () => {
+                    card.classList.toggle('expanded');
+                });
+            });
+        }
+
+        // Filter logic
+        let currentGrade = 'all';
+        let searchTerm = '';
+
+        function filterProjects() {
+            let filtered = projects;
+            
+            if (currentGrade !== 'all') {
+                filtered = filtered.filter(p => p.grade === parseInt(currentGrade));
+            }
+            
+            if (searchTerm) {
+                const term = searchTerm.toLowerCase();
+                filtered = filtered.filter(p => 
+                    p.title.toLowerCase().includes(term) ||
+                    p.members.some(m => m.toLowerCase().includes(term)) ||
+                    p.question.toLowerCase().includes(term)
+                );
+            }
+            
+            renderCards(filtered);
+            
+            // Update stats
+            const totalStudents = filtered.reduce((acc, p) => acc + p.members.length, 0);
+            document.getElementById('totalProjects').textContent = filtered.length;
+            document.getElementById('totalStudents').textContent = totalStudents;
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentGrade = btn.dataset.grade;
+                filterProjects();
+            });
+        });
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            filterProjects();
+        });
+
+        // Initial render
+        renderCards(projects);
+    </script>
+</body>
+</html>
