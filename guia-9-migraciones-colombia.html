@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía 9 - Migraciones en Colombia | CIENCIAS SOCIALES - GRADO NOVENO</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --highlight: #0f3460;
+            --gradient-1: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --gradient-2: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            --gradient-3: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            --text-light: #ffffff;
+            --text-muted: #a0aec0;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-1);
+            min-height: 100vh;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        /* HEADER */
+        .header {
+            background: var(--gradient-2);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: rgba(255,255,255,0.1);
+            transform: rotate(15deg);
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 50%;
+            height: 200%;
+            background: rgba(0,0,0,0.1);
+            transform: rotate(-15deg);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+        
+        .institution-banner {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .info-item span {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .info-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* CARDS */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            color: var(--primary);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .card-subtitle {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* PURPOSE */
+        .purpose-card {
+            background: var(--gradient-3);
+            color: white;
+            border: none;
+        }
+        
+        .purpose-card .card-header {
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+        
+        .purpose-card .card-title,
+        .purpose-card .card-subtitle {
+            color: white;
+        }
+        
+        /* READING SECTIONS */
+        .reading-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            color: #333;
+        }
+        
+        .reading-section h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .reading-section h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .reading-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 15px 15px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box-title {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* CONCEPT TABLE */
+        .concept-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .concept-table th {
+            background: var(--gradient-2);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .concept-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .concept-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .concept-table tr:hover {
+            background: #f0f4ff;
+        }
+        
+        /* ACTIVITY CARDS */
+        .activity-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            color: #333;
+            border: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .activity-card:hover {
+            border-color: var(--accent);
+        }
+        
+        .activity-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .activity-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .activity-instructions {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+        
+        .activity-instructions ol {
+            margin-left: 1.5rem;
+        }
+        
+        .activity-instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonial-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e6ed 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .testimonial-box::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: serif;
+        }
+        
+        .testimonial-source {
+            text-align: right;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--highlight);
+            margin-top: 1rem;
+        }
+        
+        /* NORMATIVE TABLE */
+        .normative-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .normative-table th {
+            background: var(--highlight);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .normative-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .normative-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* QUIZ SECTION */
+        .quiz-section {
+            background: var(--gradient-3);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .quiz-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-subtitle {
+            opacity: 0.9;
+        }
+        
+        .question-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: var(--accent);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-context {
+            background: rgba(255,255,255,0.15);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .options {
+            display: grid;
+            gap: 0.8rem;
+        }
+        
+        .option {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .option:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .option-letter {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* ANSWER KEY */
+        .answer-key {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .answer-key h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .answer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .answer-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* SELF ASSESSMENT */
+        .self-assessment {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            color: #333;
+        }
+        
+        .assessment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .assessment-table th,
+        .assessment-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .assessment-table th {
+            background: var(--gradient-1);
+            color: white;
+        }
+        
+        .checkbox-col {
+            text-align: center;
+            width: 100px;
+        }
+        
+        /* REFLECTION */
+        .reflection-card {
+            background: var(--gradient-2);
+            color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .reflection-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .reflection-card p {
+            opacity: 0.95;
+        }
+        
+        /* RESOURCES */
+        .resource-list {
+            list-style: none;
+        }
+        
+        .resource-list li {
+            padding: 1rem;
+            background: #f8f9fa;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .resource-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 3px solid var(--accent);
+        }
+        
+        .footer-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* RUBRIC */
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        
+        .rubric-table th {
+            background: var(--gradient-3);
+            color: white;
+            padding: 1rem;
+        }
+        
+        .rubric-table td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+        }
+        
+        .rubric-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* UTILITIES */
+        .text-accent { color: var(--accent); }
+        .text-center { text-align: center; }
+        .font-bold { font-weight: 700; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        
+        /* PRINT */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .header {
+                background: #333 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .card, .reading-section, .activity-card, .quiz-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* === RESPONSIVE: TABLETS (768px - 992px) === */
+        @media (max-width: 992px) {
+            .container { padding: 1.5rem; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .reading-section { padding: 1.8rem; }
+            .activity-card { padding: 1.5rem; }
+            .quiz-section { padding: 1.8rem; }
+            .concept-table, .normative-table { font-size: 0.85rem; }
+            .rubric-table { font-size: 0.78rem; }
+        }
+        
+        /* === RESPONSIVE: CELULARES (576px - 768px) === */
+        @media (max-width: 768px) {
+            .header { padding: 2rem 1.2rem; }
+            .header h1 { font-size: 1.6rem; }
+            .header h2 { font-size: 1.1rem; }
+            .logo-badge { font-size: 0.8rem; padding: 0.3rem 1rem; }
+            .institution-banner { 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 0.5rem; 
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+            .container { max-width: 100%; padding: 1rem; }
+            
+            /* Cards */
+            .card { padding: 1.2rem; border-radius: 16px; margin-bottom: 1.2rem; }
+            .card-header { gap: 0.7rem; }
+            .card-icon { width: 45px; height: 45px; font-size: 1.3rem; border-radius: 12px; }
+            .card-title { font-size: 1.15rem; }
+            .card-subtitle { font-size: 0.85rem; }
+            .purpose-card p { font-size: 0.92rem; }
+            
+            /* Reading sections */
+            .reading-section { padding: 1.2rem; }
+            .reading-section h3 { font-size: 1.2rem; }
+            .reading-section h4 { font-size: 1rem; }
+            .reading-section p { font-size: 0.9rem; }
+            
+            /* Stats */
+            .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+            .stat-card { padding: 1rem; }
+            .stat-number { font-size: 1.8rem; }
+            .stat-label { font-size: 0.78rem; }
+            
+            /* Activity cards */
+            .activity-card { padding: 1.2rem; }
+            .activity-number { width: 40px; height: 40px; font-size: 1.1rem; }
+            .activity-title { font-size: 1.1rem; }
+            .activity-instructions { padding: 1rem; font-size: 0.88rem; }
+            
+            /* Quiz */
+            .quiz-section { padding: 1.2rem; border-radius: 16px; }
+            .quiz-title { font-size: 1.3rem; }
+            .question-card { padding: 1.2rem; }
+            .question-number { font-size: 0.8rem; padding: 0.2rem 0.8rem; }
+            .question-text { font-size: 0.92rem; }
+            .question-context { padding: 1rem; font-size: 0.85rem; }
+            .option { padding: 0.8rem 1rem; font-size: 0.88rem; gap: 0.7rem; }
+            .option-letter { width: 28px; height: 28px; font-size: 0.8rem; }
+            .answer-grid { gap: 0.8rem; }
+            .answer-item { font-size: 0.95rem; }
+            
+            /* Tables - scrollable horizontally */
+            .concept-table, .normative-table {
+                font-size: 0.78rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
+            }
+            .concept-table td, .concept-table th,
+            .normative-table td, .normative-table th { padding: 0.6rem; }
+            
+            .rubric-table {
+                font-size: 0.68rem;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
+            }
+            .rubric-table td, .rubric-table th { padding: 0.5rem; }
+            
+            .assessment-table { font-size: 0.82rem; }
+            .assessment-table th, .assessment-table td { padding: 0.7rem; }
+            .checkbox-col { width: 50px; }
+            
+            /* Self assessment */
+            .self-assessment { padding: 1.2rem; }
+            .self-assessment h3 { font-size: 1.15rem; }
+            
+            /* Reflection */
+            .reflection-card { padding: 1.2rem; }
+            .reflection-card h3 { font-size: 1.2rem; }
+            .reflection-card ol { font-size: 0.88rem; }
+            
+            /* Resources */
+            .resource-list li { padding: 0.8rem; font-size: 0.82rem; }
+            .resource-icon { width: 34px; height: 34px; font-size: 0.9rem; }
+            
+            /* Highlight & Testimonial */
+            .highlight-box { padding: 1rem; }
+            .highlight-box-title { font-size: 0.9rem; }
+            .testimonial-box { padding: 1rem; font-size: 0.88rem; }
+            
+            /* Footer */
+            .footer { padding: 1.5rem; }
+            .footer-quote { font-size: 0.9rem; }
+            
+            /* Concept map */
+            .stat-card:hover { transform: none; }
+        }
+        
+        /* === RESPONSIVE: CELULARES PEQUEÑOS (< 576px) === */
+        @media (max-width: 576px) {
+            .header h1 { font-size: 1.35rem; }
+            .header h2 { font-size: 0.95rem; }
+            .logo-badge { font-size: 0.7rem; }
+            
+            .card { padding: 1rem; border-radius: 14px; margin-bottom: 1rem; }
+            .card-icon { width: 38px; height: 38px; font-size: 1.1rem; }
+            .card-title { font-size: 1rem; }
+            
+            .stat-grid { gap: 0.6rem; }
+            .stat-card { padding: 0.8rem; }
+            .stat-number { font-size: 1.5rem; }
+            
+            .activity-title { font-size: 1rem; }
+            .activity-number { width: 34px; height: 34px; font-size: 0.95rem; }
+            
+            .quiz-title { font-size: 1.1rem; }
+            .question-card { padding: 1rem; }
+            .option { padding: 0.7rem 0.8rem; font-size: 0.82rem; }
+            
+            .container { padding: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-badge">📚 GUÍA DE APRENDIZAJE N°9</div>
+            <h1>Migraciones y Desplazamiento en Colombia</h1>
+            <h2>Ciencias Sociales — Grado Noveno</h2>
+        </div>
+    </header>
+    
+    <div class="institution-banner">
+        <div class="info-item">
+            <span>🏛️ Institución:</span>
+            <p>Institución Educativa Rafael Uribe Uribe</p>
+        </div>
+        <div class="info-item">
+            <span>👨‍🏫 Docente:</span>
+            <p>Carlos Andrés Caro Taborda</p>
+        </div>
+        <div class="info-item">
+            <span>⏱️ Duración:</span>
+            <p>4 horas de estudio autónomo</p>
+        </div>
+    </div>
+    
+    <main class="container">
+        <!-- PURPOSE -->
+        <div class="card purpose-card">
+            <div class="card-header">
+                <div class="card-icon">🎯</div>
+                <div>
+                    <h2 class="card-title">Propósito de Aprendizaje</h2>
+                    <p class="card-subtitle">¿Qué se espera lograr con esta guía?</p>
+                </div>
+            </div>
+            <p>El estudiante identifica, analiza y comprende los fenómenos de migraciones internas, desplazamiento forzado y políticas públicas de atención a migrantes en Colombia, reconociendo sus causas, consecuencias e impacto social, para desarrollar pensamiento crítico frente a estas dinámicas territoriales.</p>
+        </div>
+        
+        <!-- CONTEXTUALIZATION -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">🌎</div>
+                <div>
+                    <h2 class="card-title">Contextualización del Tema</h2>
+                    <p class="card-subtitle">¿Por qué es importante este contenido?</p>
+                </div>
+            </div>
+            <p>Colombia ha sido históricamente un territorio marcado por complejas dinámicas de movilidad humana. Desde los movimientos internos causados por el conflicto armado hasta las oleadas migratorias provenientes de Venezuela, el país enfrenta desafíos significativos en materia de migración y desplazamiento.</p>
+            
+            <div class="highlight-box">
+                <div class="highlight-box-title">📊 Dato clave</div>
+                <p>En los últimos años, las cifras han alcanzado niveles alarmantes: más de 5 millones de venezolanos han cruzado la frontera colombiana, mientras que el desplazamiento forzado interno afecta a cientos de miles de personas anualmente.</p>
+            </div>
+            
+            <p>Comprender estos fenómenos permite a los ciudadanos Formarse una mirada informada y empática frente a la diversidad y los derechos humanos.</p>
+        </div>
+        
+        <!-- BLOCK 1: INTERNAL MIGRATIONS -->
+        <div class="reading-section">
+            <h3>BLOQUE 1: Migraciones Internas en Colombia</h3>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">¿Qué son las migraciones internas?</h4>
+            <p>Las migraciones internas son los movimientos de población que ocurren dentro de las fronteras de un país. A diferencia de la migración internacional, estas movilidades no cruzan límites territoriales internacionales. En Colombia, las migraciones internas se han configurado como un fenómeno complejo motivado por múltiples factores: búsqueda de oportunidades laborales, acceso a servicios educativos y de salud, violencia generalizada y, especialmente, desplazamiento forzado causado por el conflicto armado.</p>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Panorama actual de la migración interna colombiana</h4>
+            <p>Según datos del Departamento Administrativo Nacional de Estadística (DANE) y Migración Colombia, Colombia se ha consolidado como un país de múltiples perfiles migratorios: receptor de migrantes venezolanos, país de origen de miles de emigrantes hacia Estados Unidos, nación de tránsito de flujos migratorios globalizados, y territorio con intensas dinámicas de movilidad interna.</p>
+            
+            <div class="highlight-box">
+                <div class="highlight-box-title">⚠️ Dato preocupante</div>
+                <p>En el año 2022, Colombia rompió récords históricos en materia de emigración. Según el Centro de Recursos para el Análisis de Conflictos (CERAC), la emigración neta de nacionales colombianos alcanzó más de <strong>547.000 personas</strong>, siendo esta cifra <strong>2.7 veces superior</strong> al promedio anual registrado desde 2012, que rondaba los 200.000 colombianos por año.</p>
+            </div>
+            
+            <p>El patrón migratorio colombiano contemporáneo muestra características específicas: jóvenes y profesionales en edad productiva constituyen los principales perfiles que abandonan el país, motivados por la búsqueda de seguridad, mejores condiciones de vida y oportunidades educativas. Esta "fuga de cerebros" tiene efectos profundos en el tejido social y económico nacional.</p>
+            
+            <p>Paralelamente, Colombia recibe un flujo significativo de migrantes venezolanos. A febrero de 2022, según Migración Colombia, el país albergaba casi <strong>2.5 millones de venezolanos</strong>, constituyendo la segunda nación con mayor cantidad de migrantes venezolanos en el mundo.</p>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Características de los flujos migratorios</h4>
+            
+            <p><strong>a) Migración campo-ciudad:</strong> Históricamente, Colombia ha experimentado un fuerte proceso de urbanización. Muchas familias del campo migran hacia las principales ciudades buscando mejores oportunidades económicas, acceso a servicios y逃离 la violencia rural.</p>
+            
+            <p><strong>b) Migración por conflictos:</strong> Los enfrentamientos entre grupos armados ilegales generan desplazamientos forzados que constituyen migraciones internas. Más del 50% de los eventos de desplazamiento en 2023 estuvieron relacionados con estos combates.</p>
+            
+            <p><strong>c) Migración desde zonas PDET:</strong> Los Programas de Desarrollo con Enfoque Territorial (PDET) concentran poblaciones que experimentan altas tasas de movilidad.</p>
+            
+            <p><strong>d) Rutas migratorias:</strong> Colombia se ha convertido en país de tránsito. La frontera colombo-panameña, específicamente la ruta del Darién, se ha convertido en un corredor migratorio crítico. En 2023, más de 500.000 personas migrantes transitaron por esta zona.</p>
+        </div>
+        
+        <!-- CONCEPT TABLE -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">📖</div>
+                <div>
+                    <h2 class="card-title">Conceptos Clave</h2>
+                    <p class="card-subtitle">Glosario fundamental para comprender el tema</p>
+                </div>
+            </div>
+            
+            <table class="concept-table">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Definición</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Migración interna</strong></td>
+                        <td>Movimiento de población que ocurre dentro de las fronteras de un país</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Emigración</strong></td>
+                        <td>Salida de personas de un país hacia otro territorio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inmigración</strong></td>
+                        <td>Llegada de personas a un país diferente al de origen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Movilidad humana</strong></td>
+                        <td>Término amplio que incluye migración, desplazamiento, refugio y otras formas de movimiento poblacional</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ruta migratoria</strong></td>
+                        <td>Itinerario seguido por los migrantes durante su proceso de movilidad</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tránsito migratorio</strong></td>
+                        <td>Permanencia temporal en un país durante el proceso de migración hacia otro destino</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- ACTIVITY 1 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">1</div>
+                <div>
+                    <h3 class="activity-title">Actividad Generadora: "Mapa de mi entorno migratorio"</h3>
+                </div>
+            </div>
+            
+            <div class="activity-instructions">
+                <p><strong>Indicaciones:</strong> Esta actividad busca conectar los conocimientos previos del estudiante con su realidad inmediata.</p>
+                <ol>
+                    <li>Elabora un <strong>mapa conceptual o mental</strong> sobre las personas que conoces que han migrado (dentro o fuera de Colombia). Incluye: destino, motivo, año y situación actual.</li>
+                    <li>Responde las siguientes preguntas reflexivas en tu cuaderno:
+                        <ul>
+                            <li>¿Conoces a alguien que se haya tenido que ir de su barrio o municipio por alguna razón?</li>
+                            <li>¿Sabes por qué muchas personas emigran desde tu región?</li>
+                            <li>¿Qué opinas sobre la migración? Escribe al menos 3 argumentos.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Producto esperado:</strong> Mapa mental + texto reflexivo de mínimo 15 líneas.</p>
+                <p><strong>Modalidades de trabajo:</strong> Puedes completar esta actividad de forma individual o en familia, conversando con tus familiares sobre sus experiencias migratorias.</p>
+            </div>
+        </div>
+        
+        <!-- ACTIVITY 2 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">2</div>
+                <div>
+                    <h3 class="activity-title">Actividad Generadora: "Análisis visual de la migración"</h3>
+                </div>
+            </div>
+            
+            <div class="activity-instructions">
+                <p><strong>Material necesario:</strong> Acceso a internet (opcional) o revistas, periódicos.</p>
+                <ol>
+                    <li>Busca en medios de comunicación (noticias digitales, prensa, revistas) imágenes o noticias relacionadas con migraciones en Colombia.</li>
+                    <li>Selecciona <strong>3 imágenes o noticias</strong> que llamen tu atención.</li>
+                    <li>Para cada una, responde:
+                        <ul>
+                            <li>¿Qué fenómeno migratorio ilustra?</li>
+                            <li>¿Cuáles son las posibles causas?</li>
+                            <li>¿Qué consecuencias se evidencian?</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Producto esperado:</strong> Collage informativo con texto explicativo.</p>
+                <p><strong>Alternativa sin internet:</strong> Puedes usar recortes de periódicos o revistas, o dibujar escenas relacionadas con la migración.</p>
+            </div>
+        </div>
+        
+        <!-- ACTIVITY 3 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">3</div>
+                <div>
+                    <h3 class="activity-title">Diálogo Generador</h3>
+                </div>
+            </div>
+            
+            <div class="testimonial-box">
+                "Detrás de cada número hay una historia, una decisión difícil y, muchas veces, una puerta que se cierra en el país de origen sin saber si algún día se podrá volver a abrir."
+                <div class="testimonial-source">— Nota editorial, La República, 2024</div>
+            </div>
+            
+            <div class="activity-instructions">
+                <p><strong>Lee con atención el texto motivador y responde las preguntas:</strong></p>
+                <ol>
+                    <li>¿Por qué crees que esta frase describe adecuadamente la situación migratoria?</li>
+                    <li>¿Qué significa "una puerta que se cierra"? ¿Cómo afecta esto a las familias?</li>
+                    <li>¿Consideras que migrar es una decisión fácil o difícil? Justifica tu respuesta.</li>
+                    <li>¿Crees que las personas migran por gusto o por necesidad? Argumenta.</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- BLOCK 2: FORCED DISPLACEMENT -->
+        <div class="reading-section">
+            <h3>BLOQUE 2: Desplazamiento Forzado en Colombia</h3>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Definición y marco conceptual</h4>
+            <p>El desplazamiento forzado en Colombia constituye una de las formas más graves de violación a los derechos humanos. Se define como el movimiento involuntario o coercitivo de personas, familias o comunidades completas que se ven obligadas a abandonar sus territorios, hogares y bienes como resultado de situaciones de violencia, amenazas,-hostigamientos o vulneración masiva de derechos fundamentales.</p>
+            
+            <p>La Ley 1448 de 2011, conocida como Ley de Víctimas y Restitución de Tierras, establece que se considera desplazado toda persona que se ha visto forzada a migrar dentro del territorio colombiano, perdiendo su residencia y actividades económicas por causas relacionadas con el conflicto armado interno, violencia generalizal, violaciones a los Derechos Humanos o infracciones al Derecho Internacional Humanitario.</p>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Panorama actual</h4>
+            <p>Las cifras del desplazamiento forzado en Colombia siguen siendo alarmantes. Según el informe 'Dinámicas de Movilidad Humana Forzada 2022-2023' de la Defensoría del Pueblo:</p>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">154</div>
+                    <div class="stat-label">Eventos de desplazamiento masivo en 2023</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">54.665</div>
+                    <div class="stat-label">Personas desplazadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">215</div>
+                    <div class="stat-label">Eventos de confinamiento</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Departamentos afectados</div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-box-title">⚠️ Alerta</div>
+                <p><strong>Nariño</strong> se convirtió en el departamento más afectado con <strong>58 eventos</strong> que impactaron a <strong>23.483 personas</strong>. Le siguen Chocó (19 eventos), Valle del Cauca (16), Antioquia (15), Cauca (13) y Bolívar (9).</p>
+            </div>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Causas del desplazamiento forzado</h4>
+            
+            <p><strong>1. Conflicto armado y disputas territoriales:</strong> Los enfrentamientos entre grupos armados ilegales constituyen la causa principal. Más del 50% de los eventos de desplazamiento en 2023 estuvieron relacionados con combates por hegemonía territorial.</p>
+            
+            <p><strong>2. Economía ilegal y Narcotráfico:</strong> Los corredores de movilidad utilizados para el tráfico de drogas generan violencia y desplazamiento. Los territorios dedicados a cultivos de uso ilícito se convierten en escenarios de confrontación armada.</p>
+            
+            <p><strong>3. Extorsión y amenazas:</strong> Las organizaciones criminales imponen 'vacunas' (pagos de extorsión). Quienes no pueden o no quieren pagar son amenazados y obligados a desplazarse.</p>
+            
+            <p><strong>4. Reclutamiento forzado:</strong> Los grupos armados reclutan menores mediante engaños, amenazas o fuerza. Las familias que se oponen deben desplazarse para proteger a sus hijos.</p>
+            
+            <p><strong>5. Desigualdad y debilidad estatal:</strong> La histórica ausencia del Estado en regiones periféricas genera condiciones de vulnerabilidad que impulsan migraciones hacia zonas urbanas.</p>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Consecuencias del desplazamiento forzado</h4>
+            
+            <p><strong>Consecuencias individuales y familiares:</strong> Ruptura de vínculos familiares y comunitarios, pérdida de identidad cultural, traumas psicológicos, deterioro de la salud física, pérdida de oportunidades educativas y dificultades para acceder al mercado laboral formal.</p>
+            
+            <p><strong>Consecuencias sociales:</strong> Destrucción del tejido social comunitario, aumento de la pobreza en zonas receptoras, segregación espacial, discriminación y xenofobia, aumento de mendicidad y trabajo infantil.</p>
+            
+            <p><strong>Consecuencias económicas:</strong> Pérdida de productividad en regiones abandonadas, abandono de tierras y bienes productivos, concentración de la propiedad en manos de actores armados, aumento de la economía informal.</p>
+            
+            <p><strong>Consecuencias políticas:</strong> Debilitamiento de la democracia local, reducción de la participación ciudadana, pérdida de liderazgo comunitario y vacíos de poder ocupados por actores armados.</p>
+        </div>
+        
+        <!-- ACTIVITY 4 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">4</div>
+                <div>
+                    <h3 class="activity-title">Actividad Práctica: "Infografía colaborativa"</h3>
+                </div>
+            </div>
+            
+            <div class="activity-instructions">
+                <p><strong>Objetivo:</strong> Sintetizar información sobre el desplazamiento forzado en Colombia.</p>
+                <ol>
+                    <li>Organiza en grupos de trabajo (o de forma individual si estudias de forma autónoma).</li>
+                    <li>Elabora una infografía que incluya:
+                        <ul>
+                            <li>Definición de desplazamiento forzado</li>
+                            <li>5 causas principales</li>
+                            <li>5 consecuencias (al menos 2 de cada tipo: individuales, sociales y económicas)</li>
+                            <li>Un departamento más afectado con datos específicos</li>
+                            <li>Una recomendación para mejorar la situación</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Herramientas sugeridas:</strong> Canva (canva.com), Genially (genially.com), PowerPoint o Google Slides. También puedes realizarla a mano con materiales creativos.</p>
+            </div>
+        </div>
+        
+        <!-- ACTIVITY 5 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">5</div>
+                <div>
+                    <h3 class="activity-title">Testimonios que hablan</h3>
+                </div>
+            </div>
+            
+            <div class="testimonial-box">
+                "Tuve que salir corriendo con mis cuatro hijos sin nada. Dejé todo: la casa, los animales, los cultivos. Solo pude cargar a los niños. Cuando llegamos al pueblo lo único que teníamos era la ropa que traíamos puesta."
+                <div class="testimonial-source">— Madre de familia desplazada, Nariño</div>
+            </div>
+            
+            <div class="testimonial-box">
+                "En el pueblo ya no había opciones. O te ibas o te quedabas a morir. Los muchachos que se quedaron terminaron reclutados por los grupos. Por eso me vine con mi familia para la ciudad."
+                <div class="testimonial-source">— Hombre joven, desplazado de Tumaco</div>
+            </div>
+            
+            <div class="testimonial-box">
+                "Llegamos a Bogotá y no sabíamos dónde dormir. Los primeros días dormimos en la calle frente a un colegio. Los niños no podían ir a clases porque no teníamos documentos ni nada. Fue muy difícil."
+                <div class="testimonial-source">— Mujer desplazada, región Pacífico</div>
+            </div>
+            
+            <div class="activity-instructions">
+                <p><strong>Preguntas de análisis:</strong></p>
+                <ol>
+                    <li>¿Qué emociones sientes al leer estos testimonios?</li>
+                    <li>¿Qué necesidades básicas identificas en cada testimonio?</li>
+                    <li>¿Cómo crees que se sintió cada persona al dejar su territorio?</li>
+                    <li>¿Qué recursos tuvo cada familia para enfrentar la situación?</li>
+                    <li>¿Qué derechos crees que fueron vulnerados en cada caso?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- BLOCK 3: PUBLIC POLICIES -->
+        <div class="reading-section">
+            <h3>BLOQUE 3: Políticas Públicas de Atención a Migrantes en Colombia</h3>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Marco general de las políticas migratorias</h4>
+            <p>Colombia ha desarrollado un marco normativo y de políticas públicas para atender la situación migratoria, especialmente la relacionada con la migración venezolana. Este marco busca garantizar los derechos humanos de la población migrante y facilitar procesos de integración social y económica.</p>
+            
+            <p><strong>1. Nivel constitucional:</strong> La Constitución Política de Colombia reconoce los derechos fundamentales de todas las personas que se encuentren en el territorio nacional, sin distinción de nacionalidad o condición migratoria.</p>
+            
+            <p><strong>2. Nivel legal:</strong> La Ley 1448 de 2011 (Ley de Víctimas) establece la atención a víctimas del conflicto armado. La Ley 1465 de 2011 regula el Sistema Estatuto de Protección a Migrantes.</p>
+            
+            <p><strong>3. Nivel ejecutivo:</strong> El Gobierno Nacional ha expedido decretos, directivas y resoluciones para implementar políticas migratorias específicas.</p>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Estatuto Temporal de Protección para Migrantes Venezolanos (ETPV)</h4>
+            <p>El Decreto 216 de 2021 estableció el Estatuto Temporal de Protección para Migrantes Venezolanos, constituyendo el instrumento más importante de la política migratoria colombiana. El ETPV está compuesto por dos elementos fundamentales:</p>
+            
+            <p><strong>1. Registro Único de Migrantes Venezolanos (RUMV):</strong> Es un registro obligatorio que busca recopilar información sobre la población venezolana en el país para el diseño de políticas públicas.</p>
+            
+            <p><strong>2. Permiso por Protección Temporal (PPT):</strong> Es un documento de identificación que autoriza a los migrantes venezolanos a permanecer de manera regular en el territorio colombiano hasta el <strong>30 de mayo de 2031</strong>. El PPT habilita:</p>
+            <ul>
+                <li>Acceso al sistema de salud (afiliación a EPS)</li>
+                <li>Acceso al sistema educativo</li>
+                <li>Acceso al mercado laboral formal</li>
+                <li>Libre movilidad en el territorio colombiano</li>
+                <li>Acceso progresivo al sector financiero</li>
+                <li>Después de 5 años: solicitud de Visa R</li>
+            </ul>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Logros y desafíos</h4>
+            
+            <p><strong>Logros alcanzados:</strong></p>
+            <ul>
+                <li>Más de 2 millones de venezolanos regularizados mediante el ETPV</li>
+                <li>Acceso de población migrante a servicios de salud y educación</li>
+                <li>Reducción de la migración irregular mediante canales legales</li>
+                <li>Coordinación interinstitucional para atención migratoria</li>
+            </ul>
+            
+            <p><strong>Desafíos pendientes:</strong></p>
+            <ul>
+                <li>Xenofobia y discriminación hacia población migrante</li>
+                <li>Informalidad laboral pese a permisos de trabajo</li>
+                <li>Dificultades en la convalidación de títulos profesionales</li>
+                <li>Sobre carga de servicios públicos en ciudades receptoras</li>
+            </ul>
+        </div>
+        
+        <!-- NORMATIVE TABLE -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">⚖️</div>
+                <div>
+                    <h2 class="card-title">Marco Normativo Clave</h2>
+                    <p class="card-subtitle">Principales leyes y decretos que regulan la migración</p>
+                </div>
+            </div>
+            
+            <table class="normative-table">
+                <thead>
+                    <tr>
+                        <th>Norma</th>
+                        <th>Contenido principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Decreto 216 de 2021</strong></td>
+                        <td>Crea el ETPV para migrantes venezolanos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ley 1448 de 2011</strong></td>
+                        <td>Atención a víctimas y desplazados</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ley 2168 de 2021</strong></td>
+                        <td>Circunstancias agravantes trata de personas y tráfico de migrantes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resolución 971 de 2021</strong></td>
+                        <td>Implementación del ETPV</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Directiva Presidencial 05 de 2022</strong></td>
+                        <td>PPT como documento válido de identificación</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sentencia SU-397 de 2021</strong></td>
+                        <td>Prohibición de expulsión colectiva de migrantes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- ACTIVITY 7 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">7</div>
+                <div>
+                    <h3 class="activity-title">Diseñando soluciones</h3>
+                </div>
+            </div>
+            
+            <p><strong>Escenario:</strong> Eres asesor(a) del Ministerio del Interior y te han pedido proponer 3 políticas públicas para mejorar la atención a migrantes en Colombia.</p>
+            
+            <div class="activity-instructions">
+                <p><strong>Instrucciones:</strong></p>
+                <ol>
+                    <li>Identifica <strong>3 problemas concretos</strong> que enfrentan los migrantes en Colombia (puedes basarte en los textos de esta guía o en tu experiencia).</li>
+                    <li>Para cada problema, diseña una propuesta de política pública siguiendo este formato:</li>
+                </ol>
+                
+                <div class="highlight-box">
+                    <p><strong>Problema:</strong> [Descripción clara del problema]</p>
+                    <p><strong>Política propuesta:</strong> [Nombre de la política]</p>
+                    <p><strong>Objetivo:</strong> [Meta que se busca alcanzar]</p>
+                    <p><strong>Población beneficiada:</strong> [¿Quiénes se beneficiarán?]</p>
+                    <p><strong>Acciones principales:</strong> [3-5 acciones concretas]</p>
+                    <p><strong>Indicador de evaluación:</strong> [¿Cómo mediremos el éxito?]</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ACTIVITY 8 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">8</div>
+                <div>
+                    <h3 class="activity-title">Debate dirigido</h3>
+                </div>
+            </div>
+            
+            <p><strong>Tema:</strong> "El Estado colombiano debería garantizar más derechos a los migrantes venezolanos"</p>
+            
+            <div class="activity-instructions">
+                <p><strong>Instrucciones:</strong></p>
+                <ol>
+                    <li>Lee atentamente los argumentos a favor y en contra presentados.</li>
+                    <li>Elabora tu propia postura argumentada (mínimo 10 líneas).</li>
+                    <li>Prepara 3 argumentos para defender tu postura.</li>
+                </ol>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div class="highlight-box">
+                    <div class="highlight-box-title">✅ A favor</div>
+                    <ul style="margin-left: 1rem;">
+                        <li>Los migrantes tienen dignidad humana independientemente de su nacionalidad</li>
+                        <li>Colombia se beneficia económicamente del trabajo migrante</li>
+                        <li>La integración reduce la xenofobia y la exclusión</li>
+                    </ul>
+                </div>
+                <div class="highlight-box" style="background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);">
+                    <div class="highlight-box-title">❌ En contra</div>
+                    <ul style="margin-left: 1rem;">
+                        <li>Los recursos públicos deben priorizar a colombianos</li>
+                        <li>La regularización masiva puede alentar más inmigración</li>
+                        <li>Se debe garantizar primero el bienestar de la población de acogida</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ACTIVITY 9 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">9</div>
+                <div>
+                    <h3 class="activity-title">Análisis de noticia</h3>
+                </div>
+            </div>
+            
+            <div class="question-context" style="font-style: normal;">
+                <strong>Gobierno lidera mesas de diálogo frente a crisis migratoria</strong><br><br>
+                El gobierno colombiano ha liderado mesas intentando abordar el tema migratorio a nivel regional, en lugar de manejar políticas migratorias de manera aislada por cada país. La complejidad de la crisis se manifiesta en las diversas nacionalidades de los migrantes que transitan por el territorio y en la creciente cifra de personas que buscan mejores horizontes. Ante estos hechos, el Gobierno ha sido proactivo en convocar espacios de diálogo, abogando por una respuesta unificada a nivel regional frente a las políticas migratorias dispersas por país.
+            </div>
+            
+            <div class="activity-instructions">
+                <p><strong>Preguntas:</strong></p>
+                <ol>
+                    <li>¿Qué significa manejar políticas migratorias de manera "aislada"?</li>
+                    <li>¿Por qué es importante la coordinación regional en materia migratoria?</li>
+                    <li>¿Qué países crees que deberían participar en estas mesas de diálogo?</li>
+                    <li>¿Qué ventajas tiene una respuesta unificada vs. políticas individuales?</li>
+                    <li>¿Qué rol debería jugar Colombia en la crisis migratoria regional?</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- SYNTHESIS ACTIVITY -->
+        <div class="reflection-card">
+            <h3>🔄 Actividad de Síntesis: "Mi compromiso como ciudadano global"</h3>
+            <p>Después de estudiar los contenidos de esta guía, el estudiante debe:</p>
+            <ol style="margin-left: 1.5rem; margin-top: 1rem;">
+                <li>Escribir un <strong>texto argumentativo</strong> (mínimo 20 líneas) respondiendo:
+                    <ul>
+                        <li>¿Cómo puedo aportar desde mi comunidad a la inclusión de personas migrantes?</li>
+                        <li>¿Qué acciones individuales puedo realizar para combatir la xenofobia?</li>
+                        <li>¿Cómo puedo usar mis conocimientos para generar conciencia en mi entorno?</li>
+                    </ul>
+                </li>
+                <li style="margin-top: 1rem;">Diseñar una <strong>pieza de comunicación</strong> (cartel, infografía, video corto) dirigida a sus compañeros de curso, promoviendo el respeto por los derechos de las personas migrantes.</li>
+            </ol>
+        </div>
+        
+        <!-- SELF ASSESSMENT -->
+        <div class="self-assessment">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">📋 Autoevaluación del Aprendizaje</h3>
+            <p style="margin-bottom: 1rem;"><em>Responde con honestidad cada pregunta. Esta actividad es formativa.</em></p>
+            
+            <table class="assessment-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th class="checkbox-col">Lo logré ✓</th>
+                        <th class="checkbox-col">En proceso ◐</th>
+                        <th class="checkbox-col">Debo mejorar ✗</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comprendo los conceptos de migración interna y desplazamiento forzado</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Identifico al menos 5 causas del desplazamiento forzado en Colombia</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Reconozco las consecuencias individuales, sociales y económicas del desplazamiento</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Conozco las principales políticas públicas de atención a migrantes</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Analizo críticamente la situación migratoria desde una perspectiva de derechos</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Puedo argumentar mi posición sobre temas migratorios</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- QUIZ SECTION -->
+        <div class="quiz-section">
+            <div class="quiz-header">
+                <h2 class="quiz-title">📝 Evaluación Sumativa</h2>
+                <p class="quiz-subtitle">Prueba de conocimientos — Nivel difícil</p>
+            </div>
+            
+            <p style="margin-bottom: 2rem; text-align: center;"><strong>Instrucciones:</strong> Lee cada pregunta cuidadosamente antes de responder. Selecciona la única respuesta correcta entre las opciones a, b, c, d. Cada pregunta tiene un valor de 20 puntos.</p>
+            
+            <!-- QUESTION 1 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 1</span>
+                
+                <div class="question-context">
+                    Durante 2023, Colombia registró 154 eventos de desplazamiento forzado masivo, afectando a más de 54.000 personas en 17 departamentos del país. Los enfrentamientos entre grupos armados ilegales que buscan el control territorial fueron la causa principal de más del 50% de estos eventos. Según el informe de la Defensoría del Pueblo, Nariño se convirtió en el departamento más afectado, registrando 58 eventos que impactaron a más de 23.000 personas.
+                    
+                    El Defensor del Pueblo, Carlos Camargo Assis, afirmó: "Muy lejos de disminuir, el desplazamiento forzado masivo es una realidad que en Colombia sigue aumentando y no tiene el impacto mediático como en otros países. En nuestros territorios se repite, dejando un dolor familiar y un daño social difíciles de solucionar."
+                </div>
+                
+                <p class="question-text">De acuerdo con el texto, ¿cuál de las siguientes afirmaciones sobre el desplazamiento forzado en Colombia durante 2023 es INCORRECTA?</p>
+                
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>Más del 50% de los eventos de desplazamiento estuvieron relacionados con combates entre grupos armados ilegales por el control territorial.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>Nariño fue el departamento más afectado, con 58 eventos que representaron más del 50% del total nacional.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>El desplazamiento forzado masivo afectó a personas en 17 departamentos durante 2023.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>El Defensor del Pueblo manifestó que el desplazamiento forzado masivo sigue aumentando y que su impacto social es difícil de solucionar.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUESTION 2 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 2</span>
+                
+                <div class="question-context">
+                    El Estatuto Temporal de Protección para Migrantes Venezolanos (ETPV), establecido mediante el Decreto 216 de 2021, constituye el instrumento más importante de la política migratoria colombiana. Está compuesto por dos elementos fundamentales: el Registro Único de Migrantes Venezolanos (RUMV), que busca recopilar información para el diseño de políticas públicas, y el Permiso por Protección Temporal (PPT), documento que autoriza a los migrantes venezolanos a permanecer de manera regular en el país hasta el 30 de mayo de 2031.
+                    
+                    El PPT habilita a sus titulares para acceder al sistema de salud, al mercado laboral formal, a la educación y progresivamente al sector financiero. Tras cinco años de tenencia ininterrumpida, los portadores pueden solicitar la Visa R para venezolanos.
+                </div>
+                
+                <p class="question-text">Con base en el texto, el Permiso por Protección Temporal (PPT) NO habilita a su titular para:</p>
+                
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>Acceder al sistema de salud mediante afiliación a EPS.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>Trabajar formalmente en el territorio colombiano.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>Votar en elecciones presidenciales de Colombia.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>Acceder al sistema educativo en condiciones de igualdad.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUESTION 3 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 3</span>
+                
+                <div class="question-context">
+                    En el año 2022, Colombia rompió el récord histórico en materia de emigración. Según el Centro de Recursos para el Análisis de Conflictos (CERAC), 547.000 colombianos abandonaron el país, cifra que representó 2.7 veces el promedio anual registrado desde 2012. Los principales destinos fueron Estados Unidos, España, Chile, México y Canadá.
+                    
+                    Los motivos son múltiples: la búsqueda de mejores condiciones de vida, oportunidades educativas de calidad, la reunificación familiar y un entorno internacional que en algunos casos facilita los procesos migratorios. Los jóvenes y profesionales en edad productiva constituyen los principales perfiles que migran, lo que ha generado preocupación por la llamada "fuga de cerebros".
+                    
+                    Los analistas advierten que sin una caracterización clara de los migrantes, resulta casi imposible evaluar el impacto real sobre el tejido económico y social del país.
+                </div>
+                
+                <p class="question-text">Según el texto, ¿cuál de las siguientes NO es una causa mencionada para la emigración masiva de colombianos en 2022?</p>
+                
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>La facilitación de procesos migratorios por parte de algunos países extranjeros.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>La reunificación con familiares que ya residían en el exterior.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>El deseo de evade obligaciones tributarias en Colombia.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>La búsqueda de oportunidades educativas de calidad.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUESTION 4 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 4</span>
+                
+                <div class="question-context">
+                    El informe de la Oficina de Naciones Unidas para la Coordinación de Asuntos Humanitarios (OCHA) reveló que durante el primer semestre de 2024, más de 183.400 personas fueron víctimas de confinamiento y desplazamiento forzado en Colombia, representando un aumento del 30% respecto al año anterior. Las principales causas de estas emergencias están relacionadas con enfrentamientos entre actores armados no estatales, amenazas perpetradas por estos grupos en contra de la población civil y combats entre la fuerza pública y los actores armados.
+                    
+                    Los departamentos más impactados incluyen Chocó, Nariño, Cauca, Antioquia, Putumayo, Bolívar y La Guajira. Las comunidades indígenas y afrodescendientes de la región pacífica son las más afectadas por estos flagelos.
+                </div>
+                
+                <p class="question-text">De acuerdo con el texto, el aumento del 30% en víctimas de desplazamiento forzado en el primer semestre de 2024 se relaciona PRINCIPALMENTE con:</p>
+                
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>Políticas migratorias restrictivas del gobierno anterior.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>Enfrentamientos entre actores armados no estatales y acciones de la fuerza pública contra la población civil.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>Fenómenos naturales como inundaciones y temporadas de lluvia.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>Políticas de restitución de tierras implementadas por el gobierno.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUESTION 5 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 5</span>
+                
+                <div class="question-context">
+                    El gobierno colombiano ha liderado mesas de diálogo para abordar la crisis migratoria a nivel regional, reconociendo que la complejidad de esta situación se manifiesta en las diversas nacionalidades de los migrantes que transitan por el territorio. Durante 2023, más de 500.000 personas migrantes pasaron por la frontera colombo-panameña, siendo la mayoría de nacionalidad venezolana, haitiana, ecuatoriana y colombiana.
+                    
+                    Sin embargo, el informe de Migración Colombia destaca una preocupación: a pesar del crecimiento drástico en los números de migración irregular, no se observa un aumento en las capturas de traficantes de personas, manteniéndose en cifras similares a 2021 con solo 51 arrestos entre enero y noviembre de 2023.
+                </div>
+                
+                <p class="question-text">Según el texto, ¿cuál es la principal preocupación que genera el informe de Migración Colombia respecto a la migración irregular en 2023?</p>
+                
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>El aumento significativo de la migración irregular sin un incremento proporcional en la captura de traficantes.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>La reducción de los puntos decontrol en las fronteras nacionales.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>La disminución del flujo migratorio procedente de Venezuela.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>La falta de políticas públicas para atender a migrantes venezolanos.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ANSWER KEY -->
+            <div class="answer-key">
+                <h3>🔑 Clave de Respuestas</h3>
+                <div class="answer-grid">
+                    <div class="answer-item">
+                        <strong>P1:</strong> B
+                    </div>
+                    <div class="answer-item">
+                        <strong>P2:</strong> C
+                    </div>
+                    <div class="answer-item">
+                        <strong>P3:</strong> C
+                    </div>
+                    <div class="answer-item">
+                        <strong>P4:</strong> B
+                    </div>
+                    <div class="answer-item">
+                        <strong>P5:</strong> A
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RUBRIC -->
+        <div class="card" style="margin-top: 2rem;">
+            <div class="card-header">
+                <div class="card-icon">📊</div>
+                <div>
+                    <h2 class="card-title">Rúbrica de Evaluación</h2>
+                    <p class="card-subtitle">Criterios para la evaluación de la guía</p>
+                </div>
+            </div>
+            
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Superior (90-100)</th>
+                        <th>Alto (80-89)</th>
+                        <th>Básico (60-79)</th>
+                        <th>Bajo (0-59)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Comprensión conceptual</strong></td>
+                        <td>Demuestra comprensión profunda y establece relaciones entre conceptos</td>
+                        <td>Demuestra buena comprensión de los conceptos principales</td>
+                        <td>Demuestra comprensión básica de algunos conceptos</td>
+                        <td>No demuestra comprensión de los conceptos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Análisis crítico</strong></td>
+                        <td>Presenta análisis profundos y bien fundamentados sobre las temáticas</td>
+                        <td>Presenta análisis correctos con argumentos válidos</td>
+                        <td>Presenta análisis superficiales</td>
+                        <td>No presenta análisis o este es incorrecto</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Actividades prácticas</strong></td>
+                        <td>Completó todas las actividades con excelente calidad</td>
+                        <td>Completó la mayoría de actividades con buena calidad</td>
+                        <td>Completó algunas actividades de forma básica</td>
+                        <td>No completó las actividades prácticas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prueba escrita</strong></td>
+                        <td>Obtiene calificación superior a 80/100</td>
+                        <td>Obtiene calificación entre 70-79/100</td>
+                        <td>Obtiene calificación entre 60-69/100</td>
+                        <td>Obtiene calificación inferior a 60/100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- RESOURCES -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">📚</div>
+                <div>
+                    <h2 class="card-title">Recursos Complementarios</h2>
+                    <p class="card-subtitle">Referencias y lecturas recomendadas</p>
+                </div>
+            </div>
+            
+            <h4 style="color: var(--accent); margin-bottom: 1rem;">Bibliografía consultada:</h4>
+            <ul class="resource-list">
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div>
+                        <strong>Defensoría del Pueblo.</strong> (2024). <em>Dinámicas de Movilidad Humana Forzada 2022-2023</em>.
+                    </div>
+                </li>
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div>
+                        <strong>Migración Colombia.</strong> (2024). <em>Informe Anual de Migración Irregular</em>.
+                    </div>
+                </li>
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div>
+                        <strong>OCHA-ONU.</strong> (2023). <em>Panorama de Necesidades Humanitarias Colombia</em>.
+                    </div>
+                </li>
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div>
+                        <strong>CERAC.</strong> (2023). <em>Informe sobre Emigración Colombiana</em>.
+                    </div>
+                </li>
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div>
+                        <strong>ACNUR Colombia.</strong> <em>Plataforma de Coordinación para Refugiados y Migrantes de Venezuela</em>. r4v.info
+                    </div>
+                </li>
+            </ul>
+            
+            <h4 style="color: var(--accent); margin: 1.5rem 0 1rem;">Recursos digitales sugeridos:</h4>
+            <ul class="resource-list">
+                <li>
+                    <div class="resource-icon">🌐</div>
+                    <div><strong>Migración Colombia:</strong> migracioncolombia.gov.co</div>
+                </li>
+                <li>
+                    <div class="resource-icon">🌐</div>
+                    <div><strong>Unidad para las Víctimas:</strong> unidadvictimas.gov.co</div>
+                </li>
+                <li>
+                    <div class="resource-icon">🌐</div>
+                    <div><strong>Defensoría del Pueblo:</strong> defensoria.gov.co</div>
+                </li>
+                <li>
+                    <div class="resource-icon">🌐</div>
+                    <div><strong>UNICEF Colombia:</strong> unicef.org/colombia/</div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-quote">"La migración es parte de la historia humana. Comprenderla nos permite construir sociedades más justas, inclusivas y solidarias."</p>
+        <div class="footer-info">
+            <p><strong>Docente:</strong> Carlos Andrés Caro Taborda | <strong>Área:</strong> Ciencias Sociales | <strong>Grado:</strong> Noveno</p>
+            <p style="margin-top: 0.5rem;">Institución Educativa Rafael Uribe Uribe</p>
+        </div>
+    </footer>
+</body>
+</html>
