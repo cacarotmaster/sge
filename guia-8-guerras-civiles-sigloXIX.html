@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerras Civiles en Colombia en el Siglo XIX | CIENCIAS SOCIALES - GRADO OCTAVO</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #c0392b;
+            --accent2: #e74c3c;
+            --highlight: #0f3460;
+            --gold: #d4a017;
+            --gradient-1: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --gradient-2: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            --gradient-3: linear-gradient(135deg, #0f3460 0%, #1a5276 100%);
+            --gradient-gold: linear-gradient(135deg, #d4a017 0%, #f39c12 100%);
+            --gradient-darkred: linear-gradient(135deg, #2c0e0e 0%, #4a1515 100%);
+            --text-light: #ffffff;
+            --text-muted: #a0aec0;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-1);
+            min-height: 100vh;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        
+        /* HEADER */
+        .header {
+            background: var(--gradient-darkred);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(192,57,43,0.2), rgba(212,160,23,0.1));
+            transform: rotate(15deg);
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 50%;
+            height: 200%;
+            background: rgba(0,0,0,0.2);
+            transform: rotate(-15deg);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header h1 .highlight-gold {
+            color: var(--gold);
+        }
+        
+        .header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+        
+        .institution-banner {
+            background: var(--secondary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .info-item span {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .info-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* NAVIGATION */
+        .nav-section {
+            background: var(--secondary);
+            padding: 1.5rem 2rem;
+        }
+        
+        .nav-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 0.8rem;
+        }
+        
+        .nav-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .nav-btn:hover {
+            background: var(--gradient-2);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn .nav-icon {
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* CARDS */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            color: var(--primary);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .card-subtitle {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* PURPOSE CARD */
+        .purpose-card {
+            background: var(--gradient-3);
+            color: white;
+            border: none;
+        }
+        
+        .purpose-card .card-header {
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+        
+        .purpose-card .card-title,
+        .purpose-card .card-subtitle {
+            color: white;
+        }
+        
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-2);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 15px;
+            top: 5px;
+            width: 34px;
+            height: 34px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: white;
+            z-index: 1;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+        
+        .timeline-content {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .timeline-content h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content .year {
+            display: inline-block;
+            background: var(--gradient-2);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* READING SECTIONS */
+        .reading-section {
+            background: #faf5f0;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            color: #333;
+            border: 1px solid #e8ddd0;
+        }
+        
+        .reading-section h3 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .reading-section h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .reading-section h4 {
+            color: var(--highlight);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.15rem;
+        }
+        
+        .reading-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .reading-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .reading-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: linear-gradient(135deg, #fdf2f2 0%, #fadbd8 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 15px 15px 0;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box-title {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .highlight-box.gold {
+            background: linear-gradient(135deg, #fef9e7 0%, #fdebd0 100%);
+            border-left-color: var(--gold);
+        }
+        
+        .highlight-box.gold .highlight-box-title {
+            color: #b7950b;
+        }
+        
+        .highlight-box.blue {
+            background: linear-gradient(135deg, #eaf2f8 0%, #d4e6f1 100%);
+            border-left-color: #2980b9;
+        }
+        
+        .highlight-box.blue .highlight-box-title {
+            color: #2471a3;
+        }
+        
+        /* STAT GRID */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: var(--gradient-darkred);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* VIDEO CONTAINER */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+        
+        /* CONCEPT TABLE */
+        .concept-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .concept-table thead th {
+            background: var(--gradient-darkred);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .concept-table tbody td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .concept-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .concept-table tbody tr:hover {
+            background: #f0e6e6;
+        }
+        
+        /* ACTIVITY CARDS */
+        .activity-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            color: #333;
+            border: 3px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .activity-card:hover {
+            border-color: var(--gold);
+        }
+        
+        .activity-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .activity-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .activity-instructions {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+        
+        .activity-instructions ol {
+            margin-left: 1.5rem;
+        }
+        
+        .activity-instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .activity-instructions ul {
+            margin-left: 1.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        .activity-instructions ul li {
+            margin-bottom: 0.3rem;
+        }
+        
+        /* TESTIMONIAL BOX */
+        .testimonial-box {
+            background: linear-gradient(135deg, #faf0e6 0%, #f5e6cc 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            position: relative;
+            border: 1px solid #e8ddd0;
+        }
+        
+        .testimonial-box::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: serif;
+        }
+        
+        .testimonial-source {
+            text-align: right;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--highlight);
+            margin-top: 1rem;
+        }
+        
+        /* WARRIOR CARD */
+        .warrior-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warrior-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+        
+        .warrior-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .warrior-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: var(--gradient-gold);
+            color: white;
+        }
+        
+        .warrior-card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .warrior-card p {
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .warrior-card .side {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .side-federal {
+            background: #d4e6f1;
+            color: #2471a3;
+        }
+        
+        .side-central {
+            background: #fadbd8;
+            color: #c0392b;
+        }
+        
+        .side-liberal {
+            background: #fdebd0;
+            color: #d4a017;
+        }
+        
+        .side-conserv {
+            background: #e8daef;
+            color: #7d3c98;
+        }
+        
+        /* QUIZ SECTION */
+        .quiz-section {
+            background: var(--gradient-darkred);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .quiz-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-subtitle {
+            opacity: 0.9;
+        }
+        
+        .question-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .question-number {
+            display: inline-block;
+            background: var(--accent);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-context {
+            background: rgba(255,255,255,0.15);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .options {
+            display: grid;
+            gap: 0.8rem;
+        }
+        
+        .option {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .option:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .option-letter {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* ANSWER KEY */
+        .answer-key {
+            background: linear-gradient(135deg, #1a5276 0%, #2471a3 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .answer-key h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .answer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .answer-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* SELF ASSESSMENT */
+        .self-assessment {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            color: #333;
+        }
+        
+        .assessment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .assessment-table th,
+        .assessment-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .assessment-table th {
+            background: var(--gradient-darkred);
+            color: white;
+        }
+        
+        .checkbox-col {
+            text-align: center;
+            width: 100px;
+        }
+        
+        /* REFLECTION */
+        .reflection-card {
+            background: var(--gradient-gold);
+            color: #333;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .reflection-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .reflection-card ol {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .reflection-card ol li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* RESOURCES */
+        .resource-list {
+            list-style: none;
+        }
+        
+        .resource-list li {
+            padding: 1rem;
+            background: #f8f9fa;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .resource-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        .resource-icon.gold {
+            background: var(--gradient-gold);
+        }
+        
+        .resource-icon.blue {
+            background: var(--gradient-3);
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 3px solid var(--accent);
+        }
+        
+        .footer-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 1rem;
+            opacity: 0.9;
+        }
+        
+        .footer-info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* RUBRIC */
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+        
+        .rubric-table th {
+            background: var(--gradient-darkred);
+            color: white;
+            padding: 1rem;
+        }
+        
+        .rubric-table td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+        }
+        
+        .rubric-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* MAPA CONCEPTUAL */
+        .concept-map {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+        
+        .concept-map-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .concept-node {
+            background: var(--gradient-2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .concept-node.gold {
+            background: var(--gradient-gold);
+            color: #333;
+        }
+        
+        .concept-node.blue {
+            background: var(--gradient-3);
+        }
+        
+        .concept-node.outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .concept-arrow {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+        }
+        
+        /* PRINT */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .header {
+                background: #333 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .card, .reading-section, .activity-card, .quiz-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            .nav-section { display: none; }
+            .video-container { display: none; }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .institution-banner { flex-direction: column; align-items: center; }
+            .card-title { font-size: 1.4rem; }
+            .quiz-title { font-size: 1.5rem; }
+            .question-text { font-size: 1rem; }
+            .timeline::before { left: 20px; }
+            .timeline-item { padding-left: 55px; }
+            .timeline-dot { left: 8px; width: 28px; height: 28px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-badge">⚔️ GUÍA DE APRENDIZAJE</div>
+            <h1>Guerras Civiles en Colombia<br><span class="highlight-gold">Siglo <span style="font-family: 'Playfair Display', serif;">XIX</span></span></h1>
+            <h2>Ciencias Sociales — Grado Octavo</h2>
+        </div>
+    </header>
+    
+    <div class="institution-banner">
+        <div class="info-item">
+            <span>🏛️ Institución:</span>
+            <p>Institución Educativa Rafael Uribe Uribe</p>
+        </div>
+        <div class="info-item">
+            <span>👨‍🏫 Docente:</span>
+            <p>Carlos Andrés Caro Taborda</p>
+        </div>
+        <div class="info-item">
+            <span>⏱️ Duración:</span>
+            <p>2 horas de clase</p>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="nav-section">
+        <div class="nav-grid">
+            <a href="#purpose" class="nav-btn"><span class="nav-icon">🎯</span>Propósito</a>
+            <a href="#context" class="nav-btn"><span class="nav-icon">🌍</span>Contexto</a>
+            <a href="#timeline" class="nav-btn"><span class="nav-icon">📜</span>Línea de Tiempo</a>
+            <a href="#causes" class="nav-btn"><span class="nav-icon">🔍</span>Causas</a>
+            <a href="#mil-dias" class="nav-btn"><span class="nav-icon">💀</span>Guerra Mil Días</a>
+            <a href="#activities" class="nav-btn"><span class="nav-icon">✏️</span>Actividades</a>
+            <a href="#quiz" class="nav-btn"><span class="nav-icon">📝</span>Evaluación</a>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <!-- PURPOSE -->
+        <div class="card purpose-card" id="purpose">
+            <div class="card-header">
+                <div class="card-icon">🎯</div>
+                <div>
+                    <h2 class="card-title">Propósito de Aprendizaje</h2>
+                    <p class="card-subtitle">¿Qué se espera lograr con esta guía?</p>
+                </div>
+            </div>
+            <p>El estudiante analiza las principales guerras civiles ocurridas en Colombia durante el siglo <span style="font-family: 'Playfair Display', serif;">XIX</span>, identificando sus causas políticas, económicas y sociales, los actores involucrados y sus consecuencias para la configuración del Estado colombiano, desarrollando pensamiento crítico y comprensión de la complejidad del conflicto en la historia nacional.</p>
+        </div>
+
+        <!-- CONTEXT -->
+        <div class="card" id="context">
+            <div class="card-header">
+                <div class="card-icon">🌍</div>
+                <div>
+                    <h2 class="card-title">Contexto Histórico</h2>
+                    <p class="card-subtitle">¿Por qué el siglo XIX colombiano fue tan violento?</p>
+                </div>
+            </div>
+            <p>El siglo <span style="font-family: 'Playfair Display', serif;">XIX</span> en Colombia fue un período de profunda inestabilidad. Tras la independencia de España (1819-1824), el país enfrentó el desafío de construir un Estado-nación en medio de profundas divisiones internas. Durante este siglo, Colombia experimentó <strong>nueve guerras civiles de alcance nacional</strong> y más de <strong>cincuenta conflictos regionales</strong>, convirtiéndose en uno de los países más violentos del continente en esa época.</p>
+            
+            <div class="highlight-box">
+                <div class="highlight-box-title">💡 Dato clave</div>
+                <p>Colombia tuvo <strong>9 guerras civiles nacionales</strong> en el siglo XIX, lo que significa que, en promedio, hubo un conflicto armado nacional cada 11 años durante todo el siglo. Esto sin contar las numerosas revueltas regionales y golpes militares.</p>
+            </div>
+
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Las grandes preguntas del siglo XIX</h4>
+            <ul>
+                <li><strong>¿Centralismo o federalismo?</strong> ¿El poder debía concentrarse en un gobierno central fuerte o repartirse entre regiones autónomas?</li>
+                <li><strong>¿Estado laico o confesional?</strong> ¿La Iglesia Católica debía mantener su poder e influencia sobre el Estado y la educación?</li>
+                <li><strong>¿Libre comercio o proteccionismo?</strong> ¿La economía debía abrirse al mercado mundial o protegerse la producción nacional?</li>
+                <li><strong>¿Democracia restringida o amplia?</strong> ¿Quiénes podían votar y participar en política?</li>
+            </ul>
+            
+            <p>Estas preguntas, que parecen abstractas, fueron el motor de las guerras civiles que desangraron al país y que enfrentaron a colombianos contra colombianos durante todo un siglo.</p>
+        </div>
+
+        <!-- VIDEO 1: INTRODUCCIÓN -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">🎬</div>
+                <div>
+                    <h2 class="card-title">Video Introductorio</h2>
+                    <p class="card-subtitle">Contexto general de las guerras civiles en Colombia</p>
+                </div>
+            </div>
+            <p>Observa el siguiente video para tener una visión general del período. Mientras lo ves, anota en tu cuaderno: ¿Cuál fue la guerra civil más larga? ¿Qué bandos se enfrentaban?</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/FmeqT8MH99A" title="Guerras Civiles en Colombia - Siglo XIX" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p style="font-size: 0.85rem; color: #666;"><em>Fuente: Video documental sobre las guerras civiles en Colombia durante el siglo XIX.</em></p>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="card" id="timeline">
+            <div class="card-header">
+                <div class="card-icon">📜</div>
+                <div>
+                    <h2 class="card-title">Línea de Tiempo: Las Guerras Civiles</h2>
+                    <p class="card-subtitle">Los 9 conflictos nacionales del siglo XIX</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">1</div>
+                    <div class="timeline-content">
+                        <span class="year">1810-1816</span>
+                        <h4>La Patria Boba</h4>
+                        <p>Primera guerra civil de la República. Enfrentó a centralistas (Nariño) y federalistas (Camilo Torres) apenas iniciado el proceso de independencia. Concluyó con la reconquista española.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">2</div>
+                    <div class="timeline-content">
+                        <span class="year">1839-1842</span>
+                        <h4>Guerra de los Supremos</h4>
+                        <p>Conflicto que estalló en el sur del país (Pasto) cuando el gobierno central suprimió conventos menores. Los caudillos regionales (los "supremos") se levantaron contra el presidente José Ignacio de Márquez.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">3</div>
+                    <div class="timeline-content">
+                        <span class="year">1851</span>
+                        <h4>Guerra Civil de 1851</h4>
+                        <p>Levantamiento de los sectores esclavistas y conservadores contra el gobierno de José Hilario López por la abolición de la esclavitud y las reformas liberales.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">4</div>
+                    <div class="timeline-content">
+                        <span class="year">1854</span>
+                        <h4>Guerra Civil de 1854</h4>
+                        <p>Insurrección del general José María Melo, quien dio un golpe de Estado apoyado por los artesanos. Liberales y conservadores se unieron temporalmente para derrocarlo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">5</div>
+                    <div class="timeline-content">
+                        <span class="year">1860-1862</span>
+                        <h4>Guerra de las Soberanías</h4>
+                        <p>El presidente conservador Mariano Ospina Rodríguez enfrentó la rebelión de los estados federales liderada por Tomás Cipriano de Mosquera. Triunfo del federalismo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">6</div>
+                    <div class="timeline-content">
+                        <span class="year">1876-1877</span>
+                        <h4>Guerra de las Escuelas</h4>
+                        <p>Los conservadores se levantaron contra el gobierno liberal de Aquileo Parra por la reforma educativa que establecía la educación laica y obligatoria, quitándole poder a la Iglesia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">7</div>
+                    <div class="timeline-content">
+                        <span class="year">1884-1885</span>
+                        <h4>Guerra Civil de 1885</h4>
+                        <p>Rebelión de liberales radicales contra el gobierno del presidente Rafael Núñez, quien buscaba centralizar el poder y acabar con el federalismo de la Constitución de 1863.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">8</div>
+                    <div class="timeline-content">
+                        <span class="year">1895</span>
+                        <h4>Guerra Civil de 1895</h4>
+                        <p>Levantamiento liberal contra el gobierno conservador de Miguel Antonio Caro. Fue un conflicto breve (3 meses) pero dejó profundas heridas políticas.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">9</div>
+                    <div class="timeline-content" style="border-left-color: var(--gold);">
+                        <span class="year" style="background: var(--gradient-gold); color: #333;">1899-1902</span>
+                        <h4>⚔️ Guerra de los Mil Días</h4>
+                        <p>La guerra civil más larga y devastadora del siglo XIX. Enfrentó a liberales contra el gobierno conservador, dejando más de 100.000 muertos. Marcó el fin del siglo y la pérdida de Panamá en 1903.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAUSES -->
+        <div class="reading-section" id="causes">
+            <h3>🔍 Causas Recurrentes de las Guerras Civiles</h3>
+            
+            <p>Aunque cada guerra civil tuvo detonantes específicos, existieron causas estructurales que se repitieron a lo largo del siglo XIX colombiano. Comprender estas causas permite entender por qué Colombia fue un país tan conflictivo durante esta época.</p>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Guerras civiles nacionales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Conflictos regionales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Constituciones diferentes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100.000+</div>
+                    <div class="stat-label">Muertos en la Guerra de los Mil Días</div>
+                </div>
+            </div>
+            
+            <h4>1. ⚖️ Centralismo vs. Federalismo</h4>
+            <p>La disputa sobre la organización territorial del país fue la causa más recurrente. Los <strong>centralistas</strong> defendían un gobierno fuerte con poder concentrado en Bogotá. Los <strong>federalistas</strong> querían que las regiones (estados) tuvieran amplia autonomía. Esta tensión estuvo presente en al menos 7 de las 9 guerras civiles.</p>
+            
+            <div class="concept-map">
+                <div class="concept-map-row">
+                    <div class="concept-node gold">Centralismo</div>
+                    <div class="concept-arrow">⚔️</div>
+                    <div class="concept-node">Federalismo</div>
+                </div>
+                <div class="concept-map-row" style="font-size: 0.85rem; color: #666;">
+                    <span>Poder concentrado en Bogotá</span>
+                    <span style="margin: 0 2rem;">vs.</span>
+                    <span>Autonomía de las regiones</span>
+                </div>
+            </div>
+            
+            <h4>2. ⛪ Estado Laico vs. Estado Confesional</h4>
+            <p>El papel de la Iglesia Católica en el Estado fue otro motivo de constante enfrentamiento. Los <strong>liberales</strong> buscaban reducir el poder de la Iglesia, establecer la educación laica y la libertad de cultos. Los <strong>conservadores</strong> defendían la unión Iglesia-Estado y el control eclesiástico sobre la educación. La Guerra de las Escuelas (1876-1877) fue el resultado más directo de esta disputa.</p>
+            
+            <h4>3. 🌾 Conflicto por la Tierra</h4>
+            <p>La estructura de propiedad de la tierra era profundamente desigual. Los latifundios (grandes propiedades) estaban en manos de unas pocas familias, mientras que campesinos e indígenas no tenían acceso a la tierra. Las reformas liberales intentaron expropiar tierras eclesiásticas y distribuirlas, pero esto generó violenta oposición de los sectores tradicionales.</p>
+            
+            <div class="highlight-box gold">
+                <div class="highlight-box-title">🌿 Sabías que...</div>
+                <p>La <strong>Constitución de 1863</strong> (de los Estados Unidos de Colombia) fue una de las más liberales y federalistas de América Latina, pero su debilidad llevó a que en 1886 el presidente Rafael Núñez impusiera una constitución centralista y conservadora que duraría más de 100 años, hasta 1991.</p>
+            </div>
+            
+            <h4>4. 🗳️ Exclusión Política</h4>
+            <p>Durante gran parte del siglo XIX, el sistema político era excluyente. Solo una minoría de la población podía votar (hombres con propiedades y alfabetizados). Los partidos que perdían las elecciones con frecuencia recurrían a las armas porque consideraban que el sistema electoral era fraudulento. Esta fue una constante en todas las guerras civiles.</p>
+            
+            <h4>5. 👥 Caudillismo</h4>
+            <p>El poder político giraba alrededor de caudillos locales y regionales —líderes carismáticos con ejércitos privados— que movilizaban a la población en nombre de sus intereses personales o partidistas. Figuras como Tomás Cipriano de Mosquera, Rafael Núñez o José María Melo personificaron esta tendencia.</p>
+        </div>
+
+        <!-- VIDEO 2: GUERRA DE LOS MIL DÍAS -->
+        <div class="card" id="mil-dias">
+            <div class="card-header">
+                <div class="card-icon">💀</div>
+                <div>
+                    <h2 class="card-title">La Guerra de los Mil Días (1899-1902)</h2>
+                    <p class="card-subtitle">El conflicto que marcó el fin de siglo</p>
+                </div>
+            </div>
+            
+            <p>La <strong>Guerra de los Mil Días</strong> fue la más larga, sangrienta y trascendental de todas las guerras civiles del siglo XIX colombiano. Enfrentó al Partido Liberal contra el gobierno del Partido Conservador, que llevaba más de una década en el poder. Mira el siguiente video para comprender mejor este conflicto:</p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/7KLZn5LmYj4" title="La Guerra de los Mil Días" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="highlight-box-title">📊 Datos clave de la Guerra de los Mil Días</div>
+                <ul style="margin-bottom: 0;">
+                    <li><strong>Duración:</strong> 1.130 días (3 años, 1 mes y 5 días)</li>
+                    <li><strong>Muertos:</strong> Entre 100.000 y 180.000 personas</li>
+                    <li><strong>Bandos:</strong> Liberales (rebeldes) vs. Conservadores (gobierno)</li>
+                    <li><strong>Presidentes durante la guerra:</strong> Manuel Antonio Sanclemente y José Manuel Marroquín</li>
+                    <li><strong>Tratado de paz:</strong> Tratado de Wisconsin (1902), firmado en la Bahía de Panamá</li>
+                    <li><strong>Consecuencia directa:</strong> La guerra dejó al país en bancarrota y facilitó la separación de Panamá en 1903</li>
+                </ul>
+            </div>
+            
+            <h4 style="color: var(--highlight); margin: 1.5rem 0 1rem;">Cronología del conflicto</h4>
+            <ul>
+                <li><strong>Octubre 1899:</strong> Estalla la guerra en Santander con la Batalla de Bucaramanga.</li>
+                <li><strong>Diciembre 1899:</strong> Victoria liberal en la Batalla de Peralonso, liderada por Rafael Uribe Uribe.</li>
+                <li><strong>Mayo 1900:</strong> Derrota liberal en la Batalla de Palonegro, la más sangrienta del conflicto (>4.000 muertos en 14 días).</li>
+                <li><strong>Julio 1900:</strong> Golpe de Estado: Marroquín derroca a Sanclemente y radicaliza la guerra.</li>
+                <li><strong>1901-1902:</strong> Guerra de desgaste con guerrillas liberales en todo el país.</li>
+                <li><strong>Noviembre 1902:</strong> Firma del Tratado de Wisconsin. Fin de la guerra.</li>
+            </ul>
+        </div>
+
+        <!-- PERSONAJES -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">👤</div>
+                <div>
+                    <h2 class="card-title">Personajes Clave del Siglo XIX</h2>
+                    <p class="card-subtitle">Los líderes que marcaron las guerras civiles</p>
+                </div>
+            </div>
+            
+            <div class="warrior-grid">
+                <div class="warrior-card">
+                    <div class="warrior-img">🎖️</div>
+                    <h4>Rafael Uribe Uribe</h4>
+                    <p>General liberal, lideró las fuerzas rebeldes en la Guerra de los Mil Días. Fue un hábil estratega militar y político.</p>
+                    <span class="side side-liberal">Liberal</span>
+                </div>
+                <div class="warrior-card">
+                    <div class="warrior-img">🏛️</div>
+                    <h4>Tomás Cipriano de Mosquera</h4>
+                    <p>Caudillo militar y político. Fue presidente en 4 ocasiones y lideró la Guerra de las Soberanías. Pasó de conservador a liberal.</p>
+                    <span class="side side-federal">Federalista</span>
+                </div>
+                <div class="warrior-card">
+                    <div class="warrior-img">📜</div>
+                    <h4>Rafael Núñez</h4>
+                    <p>Presidente que impulsó la Constitución de 1886, acabando con el federalismo. Su gobierno centralista generó la guerra de 1885.</p>
+                    <span class="side side-central">Centralista</span>
+                </div>
+                <div class="warrior-card">
+                    <div class="warrior-img">⚔️</div>
+                    <h4>José María Melo</h4>
+                    <p>General que dio un golpe de Estado en 1854 apoyado por artesanos. Fue derrocado por una alianza liberal-conservadora.</p>
+                    <span class="side side-conserv">Golpista</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONCEPT TABLE -->
+        <div class="card" id="concepts">
+            <div class="card-header">
+                <div class="card-icon">📖</div>
+                <div>
+                    <h2 class="card-title">Conceptos Clave</h2>
+                    <p class="card-subtitle">Glosario fundamental para comprender el tema</p>
+                </div>
+            </div>
+            
+            <table class="concept-table">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Definición</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Guerra civil</strong></td>
+                        <td>Conflicto armado que enfrenta a grupos organizados dentro de un mismo país por el control del poder político o por diferencias ideológicas profundas.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Centralismo</strong></td>
+                        <td>Sistema de gobierno en el que el poder político se concentra en un gobierno nacional que controla todas las regiones del país.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Federalismo</strong></td>
+                        <td>Sistema en el que las regiones o estados tienen autonomía política y administrativa, compartiendo el poder con el gobierno nacional.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Caudillismo</strong></td>
+                        <td>Fenómeno de liderazgo político basado en la autoridad carismática de un caudillo (jefe) que moviliza seguidores armados.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laicismo</strong></td>
+                        <td>Principio que defiende la separación entre el Estado y las instituciones religiosas, promoviendo una educación sin influencia eclesiástica.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oligarquía</strong></td>
+                        <td>Grupo reducido de personas que concentra el poder económico y político, gobernando en beneficio de sus propios intereses.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Constitución</strong></td>
+                        <td>Ley fundamental de un Estado que establece la organización del poder, los derechos y deberes de los ciudadanos.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ACTIVITIES -->
+        <div class="card" style="background: var(--gradient-gold); color: #333; border: none;" id="activities">
+            <div class="card-header" style="border-bottom-color: rgba(0,0,0,0.2);">
+                <div class="card-icon" style="background: #333; color: var(--gold);">✏️</div>
+                <div>
+                    <h2 class="card-title" style="color: #333;">Actividades de Aprendizaje</h2>
+                    <p class="card-subtitle" style="color: #666;">2 horas de clase — Desarrolla en tu cuaderno</p>
+                </div>
+            </div>
+            <p><strong>Indicaciones generales:</strong> Lee cuidadosamente cada actividad. Puedes trabajar de forma individual o en parejas. Todas las actividades deben quedar registradas en tu cuaderno de Ciencias Sociales.</p>
+        </div>
+
+        <!-- ACTIVITY 1 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">1</div>
+                <div>
+                    <h3 class="activity-title">🗺️ Mapa Conceptual: "El rompecabezas del siglo XIX"</h3>
+                </div>
+            </div>
+            <p><strong>Tiempo estimado:</strong> 20 minutos</p>
+            <div class="activity-instructions">
+                <p><strong>Indicaciones:</strong></p>
+                <ol>
+                    <li>Elabora un <strong>mapa conceptual</strong> que responda a la pregunta central: <em>"¿Por qué Colombia tuvo tantas guerras civiles en el siglo XIX?"</em></li>
+                    <li>Tu mapa debe incluir al menos <strong>4 causas estructurales</strong> (centralismo vs. federalismo, papel de la Iglesia, conflicto por la tierra, exclusión política).</li>
+                    <li>Conecta cada causa con al menos <strong>una guerra civil</strong> específica de las estudiadas.</li>
+                    <li>Incluye los conceptos de <strong>caudillismo</strong> y <strong>oligarquía</strong> como categorías transversales.</li>
+                </ol>
+                <p><strong>Producto esperado:</strong> Mapa conceptual en tu cuaderno con mínimo 12 conceptos interconectados.</p>
+            </div>
+        </div>
+
+        <!-- ACTIVITY 2 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">2</div>
+                <div>
+                    <h3 class="activity-title">📰 Análisis de Fuente: "Carta de un soldado"</h3>
+                </div>
+            </div>
+            <p><strong>Tiempo estimado:</strong> 20 minutos</p>
+            <div class="testimonial-box">
+                "<em>No sé si algún día volveré a ver mi pueblo. Llevamos tres días de caminata y ya he visto morir a dos de mis compañeros, no por las balas, sino por la fiebre y el hambre. Nos dijeron que luchábamos por la libertad, pero aquí solo veo muerte y destrucción. Mi hermano menor está en el otro bando. ¿Cómo es posible que colombianos estemos matándonos entre nosotros?</em>"
+                <div class="testimonial-source">— Carta anónima de un soldado liberal, 1900. Archivo General de la Nación (fragmento adaptado).</div>
+            </div>
+            <div class="activity-instructions">
+                <p><strong>Instrucciones:</strong> Lee la carta y responde:</p>
+                <ol>
+                    <li>¿Qué emociones expresa el soldado en su carta?</li>
+                    <li>¿Qué condiciones de vida enfrentaban los combatientes?</li>
+                    <li>¿Qué quiere decir con "mi hermano menor está en el otro bando"? ¿Qué fenómeno social revela?</li>
+                    <li>¿Por qué el soldado cuestiona el sentido de la guerra? ¿Qué reflexión te genera?</li>
+                    <li>¿Crees que las guerras civiles del siglo XIX tuvieron algún parecido con el conflicto armado colombiano del siglo XX y XXI? Justifica.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ACTIVITY 3 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">3</div>
+                <div>
+                    <h3 class="activity-title">🎭 Dramatización Histórica: "El Debate del Siglo"</h3>
+                </div>
+            </div>
+            <p><strong>Tiempo estimado:</strong> 30 minutos</p>
+            <div class="activity-instructions">
+                <p><strong>Instrucciones:</strong> En grupos de 4 personas, realicen una breve dramatización (3-5 minutos por grupo) de uno de los siguientes debates históricos:</p>
+                <ul>
+                    <li><strong>Opción A:</strong> Un grupo de federalistas discute con centralistas sobre cómo debe organizarse el país en 1853.</li>
+                    <li><strong>Opción B:</strong> Un sacerdote conservador debate con un maestro liberal sobre quién debe controlar la educación en 1876.</li>
+                    <li><strong>Opción C:</strong> Dos soldados —uno liberal y uno conservador— conversan en una tregua durante la Guerra de los Mil Días.</li>
+                </ul>
+                <p>Cada grupo debe presentar <strong>3 argumentos sólidos</strong> por cada posición, usando la información de esta guía. ¡Sean creativos!</p>
+                <p><strong>Producto esperado:</strong> Presentación oral de 3-5 minutos. Los demás estudiantes tomarán notas sobre los argumentos que más les llamen la atención.</p>
+            </div>
+        </div>
+
+        <!-- ACTIVITY 4 -->
+        <div class="activity-card">
+            <div class="activity-header">
+                <div class="activity-number">4</div>
+                <div>
+                    <h3 class="activity-title">🕰️ Análisis de video: "La Guerra de los Mil Días"</h3>
+                </div>
+            </div>
+            <p><strong>Tiempo estimado:</strong> 25 minutos</p>
+            <div class="activity-instructions">
+                <p><strong>Instrucciones:</strong> Vuelve a ver el video sobre la Guerra de los Mil Días y responde:</p>
+                <ol>
+                    <li>¿Cuáles fueron las <strong>tres causas inmediatas</strong> del estallido de la guerra?</li>
+                    <li>¿Por qué la Batalla de Palonegro fue tan importante para el desenlace del conflicto?</li>
+                    <li>¿Qué papel jugó la <strong>geografía</strong> en el desarrollo de la guerra?</li>
+                    <li>¿Cómo afectó la guerra a la <strong>población civil</strong>? Menciona al menos 3 consecuencias.</li>
+                    <li>¿Por qué se dice que la Guerra de los Mil Días facilitó la <strong>separación de Panamá</strong> en 1903?</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ACTIVITY 5: CIERRE -->
+        <div class="reflection-card">
+            <h3>🔄 Actividad de Cierre: "Mi reflexión histórica"</h3>
+            <p><strong>Tiempo estimado:</strong> 15 minutos</p>
+            <p>Después de haber estudiado las guerras civiles del siglo XIX, escribe en tu cuaderno un <strong>texto reflexivo</strong> (mínimo 15 líneas) que responda:</p>
+            <ol>
+                <li>¿Qué crees que sintieron las personas que vivieron estas guerras civiles? Intenta ponerte en sus zapatos.</li>
+                <li>¿Qué aprendiste sobre la importancia del <strong>diálogo</strong> y la <strong>tolerancia política</strong> para evitar conflictos armados?</li>
+                <li>¿Crees que en la Colombia actual todavía existen divisiones políticas tan profundas como las del siglo XIX? ¿Por qué?</li>
+                <li>Como ciudadano del siglo XXI, ¿qué compromiso puedes asumir para que los conflictos se resuelvan sin violencia?</li>
+            </ol>
+        </div>
+
+        <!-- SELF ASSESSMENT -->
+        <div class="self-assessment">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">📋 Autoevaluación del Aprendizaje</h3>
+            <p style="margin-bottom: 1rem;"><em>Responde con honestidad. Esta actividad es formativa, te ayuda a identificar qué has aprendido y qué debes reforzar.</em></p>
+            
+            <table class="assessment-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th class="checkbox-col">Lo logré ✓</th>
+                        <th class="checkbox-col">En proceso ◐</th>
+                        <th class="checkbox-col">Debo mejorar ✗</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Identifico las 9 guerras civiles del siglo XIX en Colombia</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Comprendo las diferencias entre centralismo y federalismo</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Reconozco al menos 4 causas recurrentes de las guerras civiles</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Conozco las características principales de la Guerra de los Mil Días</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Analizo críticamente las causas y consecuencias de los conflictos armados</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                    <tr>
+                        <td>Relaciono el pasado con el presente para entender la Colombia de hoy</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                        <td class="checkbox-col">☐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- QUIZ -->
+        <div class="quiz-section" id="quiz">
+            <div class="quiz-header">
+                <h2 class="quiz-title">📝 Evaluación Sumativa</h2>
+                <p class="quiz-subtitle">Prueba de conocimientos — 5 preguntas tipo ICFES</p>
+            </div>
+            
+            <p style="margin-bottom: 2rem; text-align: center;"><strong>Instrucciones:</strong> Lee cada pregunta cuidadosamente. Selecciona la única respuesta correcta. Cada pregunta vale 20 puntos.</p>
+            
+            <!-- Q1 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 1</span>
+                <div class="question-context">
+                    Durante el siglo XIX, Colombia experimentó nueve guerras civiles de carácter nacional. Una de las causas más recurrentes de estos conflictos fue la disputa entre dos modelos de organización política: el centralismo y el federalismo. Los centralistas defendían la concentración del poder en el gobierno nacional, mientras que los federalistas abogaban por la autonomía de las regiones.
+                </div>
+                <p class="question-text">De acuerdo con el texto, ¿cuál de las siguientes afirmaciones describe CORRECTAMENTE una diferencia entre centralismo y federalismo?</p>
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>El centralismo busca que las regiones tengan su propio ejército y moneda.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>El federalismo propone que todas las decisiones importantes las tome el presidente desde Bogotá.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>El centralismo concentra el poder en el gobierno nacional, mientras que el federalismo otorga autonomía a las regiones.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>Tanto el centralismo como el federalismo defienden el mismo modelo de organización estatal.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Q2 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 2</span>
+                <div class="question-context">
+                    La Guerra de las Escuelas (1876-1877) fue un conflicto civil que estalló durante el gobierno del presidente liberal Aquileo Parra. La reforma educativa impulsada por el gobierno establecía la educación laica, gratuita y obligatoria, lo que implicaba quitarle a la Iglesia Católica el control sobre la enseñanza. Los sectores conservadores se levantaron en armas defendiendo el derecho de la Iglesia a dirigir la educación.
+                </div>
+                <p class="question-text">Según el texto, la causa principal de la Guerra de las Escuelas fue:</p>
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>La disputa entre federalistas y centralistas por el control de las regiones.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>El enfrentamiento entre liberales y conservadores por el control de la educación y el papel de la Iglesia.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>La crisis económica generada por la caída de los precios del café.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>La separación de Panamá de Colombia.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Q3 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 3</span>
+                <div class="question-context">
+                    La Guerra de los Mil Días (1899-1902) fue la más larga y devastadora del siglo XIX colombiano. Enfrentó al Partido Liberal contra el gobierno conservador. Entre sus consecuencias se cuentan aproximadamente 100.000 muertos, la devastación económica del país y el debilitamiento militar de Colombia, lo que facilitó la separación del departamento de Panamá en 1903 con el apoyo de Estados Unidos.
+                </div>
+                <p class="question-text">De acuerdo con el texto, una de las consecuencias INDIRECTAS de la Guerra de los Mil Días fue:</p>
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>La firma de la Constitución de 1991.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>La pérdida del departamento de Panamá.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>La instauración del federalismo en Colombia.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>La abolición definitiva de la esclavitud.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Q4 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 4</span>
+                <div class="question-context">
+                    El caudillismo fue un fenómeno político recurrente en la Colombia del siglo XIX. Los caudillos eran líderes carismáticos que contaban con el apoyo de ejércitos privados y movilizaban a la población en función de sus intereses personales, regionales o partidistas. Figuras como Tomás Cipriano de Mosquera, Rafael Uribe Uribe y José María Melo ejemplifican este fenómeno. Los caudillos solían levantarse en armas cuando consideraban que sus intereses o los de su grupo político estaban siendo amenazados.
+                </div>
+                <p class="question-text">Según el texto, una característica FUNDAMENTAL del caudillismo en el siglo XIX colombiano era:</p>
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>La defensa de los derechos de los campesinos y trabajadores.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>La existencia de líderes con ejércitos privados que defendían intereses personales o partidistas.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>La organización de elecciones democráticas y transparentes.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>La promoción de la educación laica y gratuita para todos.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Q5 -->
+            <div class="question-card">
+                <span class="question-number">Pregunta 5</span>
+                <div class="question-context">
+                    Colombia experimentó a lo largo del siglo XIX nueve constituciones diferentes (1821, 1830, 1832, 1843, 1853, 1858, 1863, 1886 y 1886 reformada). Cada cambio constitucional solía ocurrir después de una guerra civil, reflejando la victoria de un bando sobre otro. La Constitución de 1863 estableció un modelo federal extremo (Estados Unidos de Colombia), mientras que la de 1886, impulsada por Rafael Núñez, impuso un modelo centralista que duraría hasta 1991.
+                </div>
+                <p class="question-text">Con base en el texto, se puede concluir que en el siglo XIX colombiano las constituciones:</p>
+                <div class="options">
+                    <div class="option">
+                        <span class="option-letter">a</span>
+                        <span>Eran permanentes y nunca se modificaban.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">b</span>
+                        <span>Cambiaban frecuentemente y solían reflejar el resultado de las guerras civiles.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">c</span>
+                        <span>Eran aprobadas por el pueblo en votación popular.</span>
+                    </div>
+                    <div class="option">
+                        <span class="option-letter">d</span>
+                        <span>Garantizaban la paz y la estabilidad del país.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ANSWER KEY -->
+            <div class="answer-key">
+                <h3>🔑 Clave de Respuestas</h3>
+                <div class="answer-grid">
+                    <div class="answer-item"><strong>P1:</strong> C</div>
+                    <div class="answer-item"><strong>P2:</strong> B</div>
+                    <div class="answer-item"><strong>P3:</strong> B</div>
+                    <div class="answer-item"><strong>P4:</strong> B</div>
+                    <div class="answer-item"><strong>P5:</strong> B</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RUBRIC -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">📊</div>
+                <div>
+                    <h2 class="card-title">Rúbrica de Evaluación</h2>
+                    <p class="card-subtitle">Criterios para la evaluación de la guía</p>
+                </div>
+            </div>
+            
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Superior (90-100)</th>
+                        <th>Alto (80-89)</th>
+                        <th>Básico (60-79)</th>
+                        <th>Bajo (0-59)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Comprensión histórica</strong></td>
+                        <td>Demuestra comprensión profunda de las guerras civiles y sus causas estructurales</td>
+                        <td>Demuestra buena comprensión de los conflictos principales</td>
+                        <td>Demuestra comprensión básica de algunos conflictos</td>
+                        <td>No demuestra comprensión de los conflictos estudiados</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Análisis crítico</strong></td>
+                        <td>Establece relaciones complejas entre causas, desarrollo y consecuencias</td>
+                        <td>Presenta análisis correctos con argumentos válidos</td>
+                        <td>Presenta análisis superficiales</td>
+                        <td>No presenta análisis o este es incorrecto</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Actividades</strong></td>
+                        <td>Completó todas las actividades con excelente calidad y profundidad</td>
+                        <td>Completó la mayoría de actividades con buena calidad</td>
+                        <td>Completó algunas actividades de forma básica</td>
+                        <td>No completó las actividades</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Evaluación escrita</strong></td>
+                        <td>Obtiene 80-100/100</td>
+                        <td>Obtiene 70-79/100</td>
+                        <td>Obtiene 60-69/100</td>
+                        <td>Obtiene menos de 60/100</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Participación y actitud</strong></td>
+                        <td>Aporta ideas, respeta opiniones y promueve el diálogo</td>
+                        <td>Participa activamente pero no siempre aporta ideas nuevas</td>
+                        <td>Participa solo cuando se le solicita</td>
+                        <td>No participa o interrumpe el trabajo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- RESOURCES -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">📚</div>
+                <div>
+                    <h2 class="card-title">Recursos Complementarios</h2>
+                    <p class="card-subtitle">Libros, videos y sitios web para profundizar</p>
+                </div>
+            </div>
+            
+            <h4 style="color: var(--accent); margin-bottom: 1rem;">Bibliografía sugerida:</h4>
+            <ul class="resource-list">
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div><strong>Bushnell, David.</strong> (1996). <em>Colombia: una nación a pesar de sí misma</em>. Bogotá: Planeta. Capítulos 4-7.</div>
+                </li>
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div><strong>Palacios, Marco.</strong> (2002). <em>Colombia: país fragmentado, sociedad dividida</em>. Bogotá: Norma.</div>
+                </li>
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div><strong>Jaramillo Uribe, Jaime.</strong> (1989). <em>El pensamiento colombiano en el siglo XIX</em>. Bogotá: Temis.</div>
+                </li>
+                <li>
+                    <div class="resource-icon">📄</div>
+                    <div><strong>Tirado Mejía, Álvaro.</strong> (1989). <em>El Estado y la política en el siglo XIX</em>. Bogotá: El Áncora.</div>
+                </li>
+            </ul>
+            
+            <h4 style="color: var(--accent); margin: 1.5rem 0 1rem;">Videos recomendados:</h4>
+            <ul class="resource-list">
+                <li>
+                    <div class="resource-icon gold">🎬</div>
+                    <div><strong>Guerras Civiles en Colombia (Siglo XIX)</strong> — Video introductorio incluido en esta guía.</div>
+                </li>
+                <li>
+                    <div class="resource-icon gold">🎬</div>
+                    <div><strong>La Guerra de los Mil Días</strong> — Documental completo incluido en esta guía.</div>
+                </li>
+                <li>
+                    <div class="resource-icon gold">🎬</div>
+                    <div><strong>Colombia: siglo XIX</strong> — Serie documental de Señal Colombia. Disponible en señalcolombia.tv</div>
+                </li>
+            </ul>
+            
+            <h4 style="color: var(--accent); margin: 1.5rem 0 1rem;">Sitios web recomendados:</h4>
+            <ul class="resource-list">
+                <li>
+                    <div class="resource-icon blue">🌐</div>
+                    <div><strong>Banco de la República - Biblioteca Virtual:</strong> banrepcultural.org</div>
+                </li>
+                <li>
+                    <div class="resource-icon blue">🌐</div>
+                    <div><strong>Archivo General de la Nación:</strong> archivogeneral.gov.co</div>
+                </li>
+                <li>
+                    <div class="resource-icon blue">🌐</div>
+                    <div><strong>Señal Colombia - Documentales históricos:</strong> senalcolombia.tv</div>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+    
+    <footer class="footer">
+        <p class="footer-quote">"Los pueblos que olvidan su historia están condenados a repetirla. Conocer las guerras civiles del siglo XIX nos ayuda a construir una cultura de paz."</p>
+        <div class="footer-info">
+            <p><strong>Docente:</strong> Carlos Andrés Caro Taborda | <strong>Área:</strong> Ciencias Sociales | <strong>Grado:</strong> Octavo</p>
+            <p style="margin-top: 0.5rem;">Institución Educativa Rafael Uribe Uribe</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('.nav-btn[href^="#"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Interactive quiz options
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                const parent = this.closest('.question-card');
+                parent.querySelectorAll('.option').forEach(o => {
+                    o.style.background = 'rgba(255,255,255,0.1)';
+                });
+                this.style.background = 'rgba(212,160,23,0.3)';
+                this.style.border = '1px solid #d4a017';
+            });
+        });
+    </script>
+
+</body>
+</html>
