@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía 10-2: Construcción de Paz y Resolución de Conflictos en Colombia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5632;
+            --primary-light: #2d8a4e;
+            --accent: #d4a017;
+            --accent-light: #f0d060;
+            --dark: #0d1b0f;
+            --darker: #060d07;
+            --text: #1a1a2e;
+            --text-light: #4a4a6a;
+            --bg: #f8faf8;
+            --card-bg: #ffffff;
+            --success: #27ae60;
+            --info: #3498db;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --gradient-primary: linear-gradient(135deg, #1a5632 0%, #2d8a4e 50%, #3da862 100%);
+            --gradient-dark: linear-gradient(135deg, #0d1b0f 0%, #1a3a20 50%, #1a5632 100%);
+            --gradient-accent: linear-gradient(135deg, #d4a017 0%, #f0d060 100%);
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 5px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.18);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: var(--gradient-dark);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 60%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212,160,23,0.08), transparent);
+            transform: rotate(15deg);
+            animation: shimmer 8s ease-in-out infinite;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+        }
+        @keyframes shimmer { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(212,160,23,0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative; z-index: 1;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative; z-index: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative; z-index: 1;
+            max-width: 600px; margin: 0 auto;
+        }
+        .header .emoji-big {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+            position: relative; z-index: 1;
+        }
+
+        .banner {
+            background: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 3px solid var(--primary);
+        }
+        .banner-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .banner-item .icon { font-size: 1.3rem; }
+        .banner-item strong { color: var(--primary); }
+
+        .nav-section {
+            background: white;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0; z-index: 100;
+            box-shadow: var(--shadow-md);
+            border-bottom: 2px solid var(--primary-light);
+        }
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.8rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .nav-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+        .section { margin-bottom: 3rem; scroll-margin-top: 100px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-number {
+            background: var(--gradient-primary);
+            color: white;
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .card-accent { border-left: 5px solid var(--accent); }
+        .card-primary { border-left: 5px solid var(--primary); }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(26,86,50,0.05), rgba(45,138,78,0.08));
+            border: 1px solid rgba(26,86,50,0.2);
+            border-radius: var(--radius);
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box.gold {
+            background: linear-gradient(135deg, rgba(212,160,23,0.05), rgba(240,208,96,0.1));
+            border-color: rgba(212,160,23,0.3);
+        }
+        .highlight-box h4 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1rem; }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius);
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border-radius: var(--radius);
+        }
+        .video-label {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 1rem 0 1rem 60px;
+            margin: 1.5rem 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -42px; top: 0;
+            width: 34px; height: 34px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: white;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
+            z-index: 1;
+        }
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .timeline-content {
+            background: white;
+            padding: 1.2rem 1.5rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            border-left: 3px solid var(--accent);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .stat-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card .stat-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .stat-card .stat-number { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+        .stat-card .stat-label { font-size: 0.85rem; color: var(--text-light); margin-top: 0.3rem; }
+
+        .org-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .org-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        .org-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        .org-card .org-emoji { font-size: 2.5rem; margin-bottom: 0.8rem; }
+        .org-card h4 { color: var(--primary); margin-bottom: 0.5rem; font-size: 1.05rem; }
+        .org-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+        .org-card .org-tag {
+            display: inline-block;
+            background: rgba(26,86,50,0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+
+        .concept-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin: 1.5rem 0;
+        }
+        .concept-table thead { background: var(--gradient-primary); color: white; }
+        .concept-table th { padding: 1rem 1.2rem; text-align: left; font-weight: 600; font-size: 0.9rem; }
+        .concept-table td { padding: 0.9rem 1.2rem; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+        .concept-table tbody tr:nth-child(even) { background: rgba(26,86,50,0.03); }
+        .concept-table tbody tr:hover { background: rgba(26,86,50,0.06); }
+
+        .activity-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 5px solid var(--accent);
+            position: relative;
+        }
+        .activity-card .activity-number {
+            position: absolute;
+            top: -12px; left: 20px;
+            background: var(--gradient-accent);
+            color: var(--dark);
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .activity-card h4 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.05rem; padding-top: 0.3rem; }
+        .activity-card p, .activity-card ul { font-size: 0.95rem; color: var(--text); }
+        .activity-card ul { padding-left: 1.5rem; margin-top: 0.5rem; }
+        .activity-card li { margin-bottom: 0.3rem; }
+
+        .quiz-section {
+            background: var(--gradient-dark);
+            color: white;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+        .quiz-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .question-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .question-text { font-weight: 600; margin-bottom: 1rem; font-size: 1rem; }
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid transparent;
+        }
+        .option:hover { background: rgba(212,160,23,0.15); border-color: rgba(212,160,23,0.3); }
+        .option.selected { background: rgba(212,160,23,0.25); border-color: var(--accent); }
+        .option-letter {
+            background: rgba(255,255,255,0.15);
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .quiz-answer {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(39,174,96,0.2);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--success);
+            font-size: 0.9rem;
+        }
+        .quiz-answer.show { display: block; }
+        .btn-check {
+            display: block;
+            margin: 2rem auto 0;
+            padding: 0.8rem 2rem;
+            background: var(--gradient-accent);
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .btn-check:hover { transform: scale(1.05); }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .rubric-table thead { background: var(--gradient-primary); color: white; }
+        .rubric-table th { padding: 1rem; text-align: center; font-weight: 600; }
+        .rubric-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #eee; font-size: 0.85rem; text-align: center; vertical-align: top; }
+        .rubric-table tbody tr:nth-child(even) { background: rgba(26,86,50,0.03); }
+        .rubric-table td:first-child { text-align: left; font-weight: 600; color: var(--primary); }
+
+        .self-assess {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin: 1.5rem 0;
+        }
+        .self-assess h3 { color: var(--primary); margin-bottom: 1rem; }
+        .self-assess-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .self-assess-item:last-child { border-bottom: none; }
+        .self-assess-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--primary); }
+
+        .footer {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .footer .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        .footer .quote-author { font-size: 0.9rem; opacity: 0.7; margin-bottom: 2rem; }
+        .footer .footer-info { font-size: 0.85rem; opacity: 0.6; line-height: 1.8; }
+
+        @media (max-width: 992px) {
+            .header h1 { font-size: 2.2rem; }
+            .nav-grid { grid-template-columns: repeat(4, 1fr); }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .org-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .header { padding: 3rem 1.5rem 2rem; }
+            .header h1 { font-size: 1.8rem; }
+            .header .emoji-big { font-size: 3rem; }
+            .container { padding: 1.5rem; }
+            .section-title { font-size: 1.4rem; }
+            .nav-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .nav-btn { font-size: 0.7rem; padding: 0.6rem 0.5rem; }
+            .banner { flex-direction: column; align-items: flex-start; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .org-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 50px; }
+            .timeline-dot { left: -36px; width: 28px; height: 28px; font-size: 0.7rem; }
+            .quiz-section { padding: 1.5rem; }
+            .card { padding: 1.5rem; }
+            .activity-card { padding: 1.5rem; }
+            .concept-table { font-size: 0.8rem; }
+            .concept-table th, .concept-table td { padding: 0.6rem 0.8rem; }
+            .rubric-table th, .rubric-table td { padding: 0.5rem 0.6rem; font-size: 0.75rem; }
+        }
+        @media (max-width: 576px) {
+            .header h1 { font-size: 1.5rem; }
+            .header .subtitle { font-size: 0.9rem; }
+            .nav-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-grid { grid-template-columns: 1fr; }
+            .stat-card { padding: 1rem; }
+            .stat-card .stat-emoji { font-size: 2rem; }
+            .stat-card .stat-number { font-size: 1.4rem; }
+            .section-header { flex-direction: column; text-align: center; }
+            .highlight-box { padding: 1rem 1.2rem; }
+            .activity-card { padding: 1.2rem; }
+            .question-card { padding: 1.2rem; }
+            .option { padding: 0.6rem 0.8rem; font-size: 0.85rem; }
+            .self-assess-item { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="badge">GUÍA DE APRENDIZAJE N° 3</div>
+    <div class="emoji-big">🕊️🤝🌿</div>
+    <h1>Construcción de Paz y Resolución de Conflictos en Colombia</h1>
+    <p class="subtitle">Organizaciones sociales y movimientos ciudadanos como agentes de transformación</p>
+</div>
+
+<!-- BANNER INFO -->
+<div class="banner">
+    <div class="banner-item">
+        <span class="icon">🏫</span>
+        <span><strong>Institución Educativa Rafael Uribe Uribe</strong></span>
+    </div>
+    <div class="banner-item">
+        <span class="icon">👨‍🏫</span>
+        <span>Docente: <strong>Carlos Andrés Caro Taborda</strong></span>
+    </div>
+    <div class="banner-item">
+        <span class="icon">📚</span>
+        <span>Grado: <strong>10-2</strong> | Asignatura: <strong>Ciencias Sociales</strong></span>
+    </div>
+    <div class="banner-item">
+        <span class="icon">⏱️</span>
+        <span>Duración: <strong>2 sesiones</strong> (1.5 horas c/u)</span>
+    </div>
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav-section">
+    <div class="nav-grid">
+        <a href="#proposito" class="nav-btn">🎯 Propósito</a>
+        <a href="#contexto" class="nav-btn">🌍 Contexto</a>
+        <a href="#videos" class="nav-btn">🎬 Videos</a>
+        <a href="#linea-tiempo" class="nav-btn">📅 Línea de Tiempo</a>
+        <a href="#lectura" class="nav-btn">📖 Lectura</a>
+        <a href="#organizaciones" class="nav-btn">🏛️ Organizaciones</a>
+        <a href="#glosario" class="nav-btn">📝 Glosario</a>
+        <a href="#actividades" class="nav-btn">✏️ Actividades</a>
+        <a href="#autoevaluacion" class="nav-btn">✅ Autoevaluación</a>
+        <a href="#evaluacion" class="nav-btn">📊 Evaluación</a>
+        <a href="#rubrica" class="nav-btn">📋 Rúbrica</a>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- PROPÓSITO -->
+    <div class="section" id="proposito">
+        <div class="section-header">
+            <div class="section-number">1</div>
+            <h2 class="section-title">🎯 Propósito de la Guía</h2>
+        </div>
+        <div class="card card-accent">
+            <p style="font-size: 1.05rem; line-height: 1.8;">
+                Al finalizar esta guía, los y las estudiantes del grado <strong>10-2</strong> podrán:
+            </p>
+            <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                <li><strong>Comprender</strong> los fundamentos teóricos y prácticos de la construcción de paz en Colombia, identificando los diferentes enfoques (negociación, justicia transicional, desarrollo rural)</li>
+                <li><strong>Analizar</strong> los Acuerdos de Paz de La Habana (2016) y su implementación, reconociendo avances, retrocesos y desafíos actuales</li>
+                <li><strong>Reconocer</strong> el papel fundamental de las organizaciones sociales y movimientos ciudadanos como actores protagónicos en la resolución pacífica de conflictos</li>
+                <li><strong>Valorar</strong> la diversidad de estrategias de resistencia civil, memoria histórica y acción colectiva que han construido paz desde los territorios</li>
+                <li><strong>Reflexionar</strong> sobre su rol como ciudadanos activos en la construcción de una cultura de paz en su comunidad</li>
+            </ul>
+        </div>
+        <div class="highlight-box">
+            <h4>🔑 Ejes Temáticos</h4>
+            <p><strong>Eje 1:</strong> Construcción de paz y resolución de conflictos en Colombia</p>
+            <p><strong>Eje 2:</strong> Organizaciones sociales y movimientos ciudadanos</p>
+        </div>
+    </div>
+
+    <!-- CONTEXTO -->
+    <div class="section" id="contexto">
+        <div class="section-header">
+            <div class="section-number">2</div>
+            <h2 class="section-title">🌍 Contextualización</h2>
+        </div>
+        <div class="card card-primary">
+            <p style="font-size: 1.05rem; line-height: 1.8;">
+                Colombia ha vivido más de <strong>60 años de conflicto armado</strong>, uno de los más prolongados de América Latina. Este conflicto ha dejado más de <strong>260.000 muertos</strong>, casi <strong>100.000 desaparecidos</strong> forzados, más de <strong>8 millones de víctimas</strong> registradas y millones de desplazados internos. Sin embargo, paralelamente al conflicto, ha existido una enorme capacidad de resistencia, organización y búsqueda de paz por parte de la sociedad civil.
+            </p>
+        </div>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-emoji">🕊️</div>
+                <div class="stat-number">2016</div>
+                <div class="stat-label">Acuerdos de La Habana</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-emoji">📋</div>
+                <div class="stat-number">6</div>
+                <div class="stat-label">Puntos de los Acuerdos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-emoji">👥</div>
+                <div class="stat-number">8M+</div>
+                <div class="stat-label">Víctimas registradas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-emoji">🏛️</div>
+                <div class="stat-number">1700+</div>
+                <div class="stat-label">Organizaciones de paz</div>
+            </div>
+        </div>
+        <div class="highlight-box gold">
+            <h4>💡 Para reflexionar</h4>
+            <p>¿Qué entiendes por "construcción de paz"? ¿Crees que la paz solo se logra con la ausencia de guerra, o hay algo más? Anota tus ideas en tu cuaderno.</p>
+        </div>
+    </div>
+
+    <!-- VIDEOS -->
+    <div class="section" id="videos">
+        <div class="section-header">
+            <div class="section-number">3</div>
+            <h2 class="section-title">🎬 Videos de Apoyo</h2>
+        </div>
+        <p style="margin-bottom: 1.5rem; color: var(--text-light);">Observa los siguientes videos para complementar tu comprensión del tema. Toma notas de los puntos más importantes.</p>
+        
+        <div class="card">
+            <h4 style="color: var(--primary); margin-bottom: 0.8rem;">📹 Video 1: Los Acuerdos de Paz explicados</h4>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/3Tk5sP1JhCk" 
+                    title="Acuerdos de Paz Colombia" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            </div>
+            <p class="video-label">Explicación de los 6 puntos de los Acuerdos de La Habana</p>
+        </div>
+
+        <div class="card">
+            <h4 style="color: var(--primary); margin-bottom: 0.8rem;">📹 Video 2: Movimientos sociales en Colombia</h4>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/eFkvn-6YqEo" 
+                    title="Movimientos sociales Colombia" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            </div>
+            <p class="video-label">Historia de los movimientos sociales y su lucha por la paz</p>
+        </div>
+
+        <div class="card">
+            <h4 style="color: var(--primary); margin-bottom: 0.8rem;">📹 Video 3: Organizaciones de víctimas y memoria histórica</h4>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ZXsD1wQ3YqQ" 
+                    title="Memoria histórica Colombia" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+            </div>
+            <p class="video-label">El rol de las organizaciones de víctimas en la búsqueda de verdad y justicia</p>
+        </div>
+    </div>
+
+    <!-- LÍNEA DE TIEMPO -->
+    <div class="section" id="linea-tiempo">
+        <div class="section-header">
+            <div class="section-number">4</div>
+            <h2 class="section-title">📅 Línea de Tiempo: Procesos de Paz en Colombia</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <div class="timeline-year">1982 - Apertura del frente legal</div>
+                <div class="timeline-content">
+                    <p>Las FARC-EP abren un frente político legal. Nace la <strong>Unión Patriótica (UP)</strong>, partido político que buscaba la participación democrática. Más de 3.000 de sus miembros fueron asesinados en los años siguientes.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <div class="timeline-year">1990 - Constituyente y desmovilización del M-19</div>
+                <div class="timeline-content">
+                    <p>El <strong>M-19</strong> se desmoviliza y participa en la Asamblea Nacional Constituyente, logrando una de las constituciones más progresistas de América Latina. Se crean los mecanismos de <strong>Participación Ciudadana</strong> y los <strong>Derechos Fundamentales</strong>.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <div class="timeline-year">1998 - Acuerdo de El Cagúan</div>
+                <div class="timeline-content">
+                    <p>Se inicia el proceso de paz con las FARC-EP en la zona de distensión del Cagúan (Caquetá). El proceso fracasa en 2002 tras la crisis del secuestro de las parlamentarias.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <div class="timeline-year">2012 - Inicio de negociaciones en La Habana</div>
+                <div class="timeline-content">
+                    <p>Comienzan las negociaciones secretas entre el gobierno Santos y las FARC-EP en La Habana, Cuba. Se establecen 6 puntos de agenda: Reforma Rural, Participación Política, Fin del Conflicto, Solución al Problema de las Drogas Ilícitas, Víctimas y Verificación.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">5</div>
+                <div class="timeline-year">2016 - Acuerdo Final de Paz</div>
+                <div class="timeline-content">
+                    <p>Se firma el <strong>Acuerdo Final para la Terminación del Conflicto y la Construcción de una Paz Estable y Duradera</strong>. En el plebiscito del 2 de octubre, el "No" gana por 50.2%, lo que lleva a renegociar algunos puntos. El acuerdo definitivo se firma el 24 de noviembre en el Teatro Colón.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">6</div>
+                <div class="timeline-year">2017 - Creación de la JEP</div>
+                <div class="timeline-content">
+                    <p>Se pone en marcha la <strong>Jurisdicción Especial para la Paz (JEP)</strong>, tribunal transicional encargado de juzgar a los responsables de crímenes graves cometidos durante el conflicto. También se crean la Unidad de Búsqueda de Personas y la Comisión de la Verdad.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">7</div>
+                <div class="timeline-year">2022 - Ley de Amnistía y primer informe de la Comisión de la Verdad</div>
+                <div class="timeline-content">
+                    <p>Se aprueba la <strong>Ley de Amnistía</strong> para crímenes políticos conexos. La Comisión de la Verdad entrega su informe final, "No hay futuro sin verdad", documentando más de 50 años de conflicto. Se inician nuevos procesos de negociación con el ELN.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">8</div>
+                <div class="timeline-year">2023 - Diálogos con el ELN</div>
+                <div class="timeline-content">
+                    <p>Se inician diálogos formales entre el gobierno Petro y el ELN en Venezuela. Se acuerdan medidas de humanización del conflicto y cese al fuego bilateral. El proceso continúa con desafíos significativos en los territorios.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LECTURA -->
+    <div class="section" id="lectura">
+        <div class="section-header">
+            <div class="section-number">5</div>
+            <h2 class="section-title">📖 Bloques de Lectura</h2>
+        </div>
+
+        <div class="card card-primary">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">📘 Bloque 1: ¿Qué es la construcción de paz?</h4>
+            <p style="line-height: 1.8; margin-bottom: 1rem;">
+                La <strong>construcción de paz</strong> no es simplemente la ausencia de guerra. Es un proceso activo, colectivo y multidimensional que involucra transformar las condiciones estructurales que generan violencia: desigualdad, exclusión política, impunidad, despojo de tierras y violaciones sistemáticas de derechos humanos.
+            </p>
+            <p style="line-height: 1.8; margin-bottom: 1rem;">
+                Según la <strong>Resolución 1325 del Consejo de Seguridad de la ONU</strong> (2000), la paz requiere la participación equitativa de mujeres y hombres en todos los niveles de toma de decisiones, la protección de derechos humanos y la integración de la perspectiva de género en los procesos de paz.
+            </p>
+            <p style="line-height: 1.8;">
+                En Colombia, la construcción de paz ha tenido múltiples vías: desde los procesos de negociación gobierno-guerrilla, pasando por la justicia transicional (JEP), hasta las iniciativas territoriales de las comunidades que construyen convivencia en medio del conflicto.
+            </p>
+        </div>
+
+        <div class="card card-accent">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">📗 Bloque 2: Los Acuerdos de La Habana</h4>
+            <p style="line-height: 1.8; margin-bottom: 1rem;">
+                Los <strong>Acuerdos de La Habana</strong> (2016) son el resultado de 4 años de negociación entre el gobierno del presidente Juan Manuel Santos y las FARC-EP. Se estructuran en <strong>6 puntos fundamentales</strong>:
+            </p>
+            <ol style="padding-left: 1.5rem; line-height: 2;">
+                <li><strong>Reforma Rural Integral:</strong> transformación del campo colombiano, formalización de tierras, vías de comunicación y desarrollo rural</li>
+                <li><strong>Participación Política:</strong> apertura democrática para los excombatientes, movimientos sociales y sectores históricamente excluidos</li>
+                <li><strong>Fin del Conflicto:</strong> cese al fuego, dejación de armas, verificación internacional y reincorporación de excombatientes</li>
+                <li><strong>Solución al Problema de las Drogas Ilícitas:</strong> sustitución de cultivos de uso ilícito, desarrollo alternativo y prevención del consumo</li>
+                <li><strong>Víctimas del Conflicto:</strong> justicia transicional (JEP), Comisión de la Verdad, Unidad de Búsqueda y reparación integral</li>
+                <li><strong>Implementación, Verificación y Refrendación:</strong> mecanismos para garantizar el cumplimiento del acuerdo</li>
+            </ol>
+        </div>
+
+        <div class="card card-primary">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">📙 Bloque 3: Organizaciones sociales y movimientos ciudadanos</h4>
+            <p style="line-height: 1.8; margin-bottom: 1rem;">
+                Las <strong>organizaciones sociales</strong> y los <strong>movimientos ciudadanos</strong> han sido actores fundamentales en la construcción de paz en Colombia, incluso antes de los acuerdos formales. Estos actores incluyen:
+            </p>
+            <ul style="padding-left: 1.5rem; line-height: 2;">
+                <li><strong>Organizaciones de víctimas:</strong> MOVICE, Rutas del Conflicto, Association of Victims</li>
+                <li><strong>Movimientos campesinos:</strong> ANZorc, CNA (Congreso de los Pueblos), Marcha Patriótica</li>
+                <li><strong>Mujeres organizadas:</strong> Ruta Pacífica de las Mujeres, Mesa de Mujeres de Bogotá</li>
+                <li><strong>Jóvenes en resistencia:</strong> Congreso de los Pueblos, Marcha Nacional de la Juventud</li>
+                <li><strong>Organizaciones indígenas:</strong> ONIC, Consejo Regional Indígena del Cauca (CRIC)</li>
+                <li><strong>Comunidades de paz:</strong> Comunidad de San José de Apartadó, Resguardos indígenas</li>
+            </ul>
+            <p style="line-height: 1.8; margin-top: 1rem;">
+                Estas organizaciones han desarrollado estrategias como la <strong>resistencia civil no violenta</strong>, la <strong>acción comunitaria</strong>, la <strong>movilización social</strong>, la <strong>documentación de violaciones de derechos humanos</strong>, la <strong>memoria histórica</strong> y la <strong>construcción de alternativas económicas</strong> en los territorios.
+            </p>
+        </div>
+    </div>
+
+    <!-- ORGANIZACIONES -->
+    <div class="section" id="organizaciones">
+        <div class="section-header">
+            <div class="section-number">6</div>
+            <h2 class="section-title">🏛️ Organizaciones Clave</h2>
+        </div>
+        <p style="margin-bottom: 1.5rem; color: var(--text-light);">Conoce las principales organizaciones y movimientos que han construido paz desde los territorios:</p>
+        
+        <div class="org-grid">
+            <div class="org-card">
+                <div class="org-emoji">🕊️</div>
+                <h4>Ruta Pacífica de las Mujeres</h4>
+                <p>Movimiento feminista que desde 1996 promueve la resistencia civil no violenta de las mujeres colombianas contra el conflicto armado. Ha realizado más de 20 marchas nacionales.</p>
+                <span class="org-tag">Mujeres por la paz</span>
+            </div>
+            <div class="org-card">
+                <div class="org-emoji">⚖️</div>
+                <h4>MOVICE</h4>
+                <p>Movimiento Nacional de Víctimas de Crímenes de Estado. Organización que agrupa a víctimas de terrorismo de Estado y promueve la verdad, justicia y reparación.</p>
+                <span class="org-tag">Víctimas organizadas</span>
+            </div>
+            <div class="org-card">
+                <div class="org-emoji">🌽</div>
+                <h4>ANZorc / CNA</h4>
+                <p>Asociación Nacional de Zonas de Reserva Campesina y Coordinadora Nacional Agraria. Luchan por la tierra, el territorio y la soberanía alimentaria.</p>
+                <span class="org-tag">Campesinado</span>
+            </div>
+            <div class="org-card">
+                <div class="org-emoji">✊</div>
+                <h4>Marcha Patriótica</h4>
+                <p>Movimiento político y social surgido en 2012, heredero de la Unión Patriótica. Aglutina sectores sociales, sindicales y populares en busca de paz con justicia social.</p>
+                <span class="org-tag">Movimiento político</span>
+            </div>
+            <div class="org-card">
+                <div class="org-emoji">🪶</div>
+                <h4>ONIC / CRIC</h4>
+                <p>Organización Nacional Indígena de Colombia y Consejo Regional Indígena del Cauca. Defensores de los derechos territoriales, culturales y de autonomía indígena.</p>
+                <span class="org-tag">Pueblos indígenas</span>
+            </div>
+            <div class="org-card">
+                <div class="org-emoji">💜</div>
+                <h4>Comunidad de San José de Apartadó</h4>
+                <p>Comunidad de paz fundada en 1997 que ha mantenido su neutralidad frente al conflicto armado, sufriendo más de 300 asesinatos de sus integrantes.</p>
+                <span class="org-tag">Comunidad de paz</span>
+            </div>
+            <div class="org-card">
+                <div class="org-emoji">📝</div>
+                <h4>Rutas del Conflicto</h4>
+                <p>Plataforma de sociedad civil que documenta y mapea las violaciones de derechos humanos en Colombia. Herramienta fundamental para la memoria histórica.</p>
+                <span class="org-tag">Memoria histórica</span>
+            </div>
+            <div class="org-card">
+                <div class="org-emoji">🎨</div>
+                <h4>Colectivos Artísticos</h4>
+                <p>Movimientos como "Decolonizar el Fantasma", "Museos de Memoria" y colectivos de artistas urbanos que usan el arte como herramienta de resistencia y paz.</p>
+                <span class="org-tag">Arte y resistencia</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOSARIO -->
+    <div class="section" id="glosario">
+        <div class="section-header">
+            <div class="section-number">7</div>
+            <h2 class="section-title">📝 Glosario de Conceptos Clave</h2>
+        </div>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Concepto</th>
+                    <th>Definición</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Construcción de paz</strong></td>
+                    <td>Proceso activo y colectivo que busca transformar las condiciones estructurales de violencia y construir relaciones sociales basadas en la justicia, la equidad y el respeto a los derechos humanos.</td>
+                </tr>
+                <tr>
+                    <td><strong>Justicia transicional</strong></td>
+                    <td>Mecanismos judiciales y extrajudiciales creados para responder a violaciones masivas de derechos humanos en contextos de conflicto. En Colombia, la JEP es el principal órgano.</td>
+                </tr>
+                <tr>
+                    <td><strong>JEP</strong></td>
+                    <td>Jurisdicción Especial para la Paz. Tribunal temporal creado por los Acuerdos de La Habana para juzgar a los responsables de crímenes graves cometidos durante el conflicto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Comisión de la Verdad</strong></td>
+                    <td>Órgano extrajudicial del Sistema Integral de Verdad, Justicia, Reparación y No Repetición. Su función es contribuir al esclarecimiento de la verdad sobre el conflicto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Movimiento social</strong></td>
+                    <td>Acción colectiva organizada de sectores de la sociedad civil que busca cambios políticos, sociales o económicos a través de la movilización, la protesta y la incidencia.</td>
+                </tr>
+                <tr>
+                    <td><strong>Resistencia civil no violenta</strong></td>
+                    <td>Estrategia de acción colectiva que busca generar cambios sociales y políticos sin recurrir a la violencia física, mediante la desobediencia civil, la movilización y la acción directa.</td>
+                </tr>
+                <tr>
+                    <td><strong>Memoria histórica</strong></td>
+                    <td>Proceso colectivo de recuperación, preservación y difusión de la historia de las víctimas del conflicto, como mecanismo de no repetición.</td>
+                </tr>
+                <tr>
+                    <td><strong>Reforma Rural Integral</strong></td>
+                    <td>Conjunto de medidas acordadas en La Habana para transformar las condiciones del campo colombiano, incluyendo acceso a tierra, vías, servicios y desarrollo rural.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sustitución de cultivos</strong></td>
+                    <td>Programa que busca reemplazar los cultivos de uso ilícito por cultivos lícitos, acompañado de desarrollo rural integral y proyectos productivos.</td>
+                </tr>
+                <tr>
+                    <td><strong>Víctimas del conflicto</strong></td>
+                    <td>Personas que han sufrido daño individual o colectivo por virtue de acciones u omisiones de los actores armados, incluyendo muerte, lesiones, desplazamiento, desaparición forzada, entre otros.</td>
+                </tr>
+                <tr>
+                    <td><strong>Participación política</strong></td>
+                    <td>Derecho de los ciudadanos a incidir en las decisiones del Estado. En el contexto de los acuerdos, implica la apertura democrática para sectores excluidos.</td>
+                </tr>
+                <tr>
+                    <td><strong>Cultura de paz</strong></td>
+                    <td>Conjunto de valores, actitudes y comportamientos que rechazan la violencia y buscan resolver los conflictos por medios pacíficos, basados en la democracia y los derechos humanos.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <div class="section" id="actividades">
+        <div class="section-header">
+            <div class="section-number">8</div>
+            <h2 class="section-title">✏️ Actividades de Aprendizaje</h2>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-number">1</div>
+            <h4>🔍 Actividad 1: Análisis de los Acuerdos de Paz</h4>
+            <p><strong>Tipo:</strong> Investigación y análisis | <strong>Tiempo:</strong> 30 minutos</p>
+            <ul>
+                <li>Lee el Bloque 2 de la lectura sobre los Acuerdos de La Habana</li>
+                <li>Selecciona <strong>2 de los 6 puntos</strong> de los acuerdos que te parezcan más importantes</li>
+                <li>Para cada punto, explica en tus propias palabras:
+                    <ul>
+                        <li>¿Qué busca resolver?</li>
+                        <li>¿Por qué es importante para la paz?</li>
+                        <li>¿Qué avances has visto en las noticias?</li>
+                    </ul>
+                </li>
+                <li>Comparte tus respuestas con tu equipo</li>
+            </ul>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-number">2</div>
+            <h4>📋 Actividad 2: Fichas de Organizaciones</h4>
+            <p><strong>Tipo:</strong> Investigación colaborativa | <strong>Tiempo:</strong> 35 minutos</p>
+            <ul>
+                <li>En equipos de máximo 3 estudiantes, cada uno investigará una organización diferente</li>
+                <li>Cada estudiante crea una <strong>ficha técnica</strong> con:
+                    <ul>
+                        <li>Nombre de la organización</li>
+                        <li>Año de fundación</li>
+                        <li>Objetivos principales</li>
+                        <li>Estrategias que usa para construir paz</li>
+                        <li>Un logro o acción destacada</li>
+                    </ul>
+                </li>
+                <li>Presenten las fichas al grupo (1 minuto cada una)</li>
+                <li><strong>Opciones:</strong> Ruta Pacífica, MOVICE, ONIC, Marcha Patriótica, Comunidad de San José de Apartadó, Rutas del Conflicto</li>
+            </ul>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-number">3</div>
+            <h4>🎭 Actividad 3: Diálogo y Debate</h4>
+            <p><strong>Tipo:</strong> Debate estructurado | <strong>Tiempo:</strong> 25 minutos</p>
+            <p style="margin-bottom: 0.5rem;"><strong>Propuesta de debate:</strong></p>
+            <div class="highlight-box" style="margin: 0.5rem 0 1rem;">
+                <p><em>"¿La paz en Colombia se puede lograr solo con acuerdos entre el gobierno y los grupos armados, o es necesario que las organizaciones sociales y la ciudadanía tengan un papel protagonista?"</em></p>
+            </div>
+            <ul>
+                <li>Dividan el grupo en 2 bandos: <strong>A favor</strong> y <strong>En contra</strong> de la afirmación</li>
+                <li>Cada lado prepara 3 argumentos con ejemplos concretos</li>
+                <li>Tiempo: 3 minutos por bando + 2 minutos de réplica</li>
+                <li>El docente modera y al final se busca una conclusión conjunta</li>
+            </ul>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-number">4</div>
+            <h4>🗺️ Actividad 4: Mapa de Actores de Paz en Colombia</h4>
+            <p><strong>Tipo:</strong> Organización gráfica | <strong>Tiempo:</strong> 30 minutos</p>
+            <ul>
+                <li>En su cuaderno, dibujen un <strong>mapa conceptual</strong> que incluya:
+                    <ul>
+                        <li>En el centro: "Construcción de Paz en Colombia"</li>
+                        <li>Ramas para: Organizaciones sociales, Movimientos ciudadanos, Procesos de paz (acuerdos), Instituciones (JEP, Comisión de la Verdad)</li>
+                        <li>Cada rama con al menos 3 ejemplos específicos</li>
+                    </ul>
+                </li>
+                <li>Usen colores diferentes para cada categoría</li>
+                <li>Incluyan al menos 2 imágenes o dibujos representativos</li>
+            </ul>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-number">5</div>
+            <h4>✍️ Actividad 5: Carta a las Organizaciones de Paz</h4>
+            <p><strong>Tipo:</strong> Producción escrita | <strong>Tiempo:</strong> 20 minutos</p>
+            <ul>
+                <li>Escriban una carta dirigida a una de las organizaciones estudiadas</li>
+                <li>La carta debe incluir:
+                    <ul>
+                        <li>Sus observaciones sobre la importancia de su labor</li>
+                        <li>Una pregunta que les gustaría hacerles</li>
+                        <li>Un compromiso personal de cómo pueden contribuir a la paz desde su escuela y comunidad</li>
+                    </ul>
+                </li>
+                <li>Formato: mínimo 15 líneas, con estructura de carta formal</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- AUTOEVALUACIÓN -->
+    <div class="section" id="autoevaluacion">
+        <div class="section-header">
+            <div class="section-number">9</div>
+            <h2 class="section-title">✅ Autoevaluación</h2>
+        </div>
+        <div class="self-assess">
+            <h3>¿Qué tan bien comprendí el tema?</h3>
+            <p style="color: var(--text-light); margin-bottom: 1rem;">Marca con una ✓ cada afirmación que sientas que lograste:</p>
+            <div class="self-assess-item">
+                <input type="checkbox" id="sa1">
+                <label for="sa1">Puedo explicar qué es la construcción de paz y cómo difiere de simplemente "no tener guerra"</label>
+            </div>
+            <div class="self-assess-item">
+                <input type="checkbox" id="sa2">
+                <label for="sa2">Conozco los 6 puntos de los Acuerdos de La Habana y puedo explicar al menos 2 de ellos</label>
+            </div>
+            <div class="self-assess-item">
+                <input type="checkbox" id="sa3">
+                <label for="sa3">Puedo nombrar al menos 4 organizaciones sociales que trabajan por la paz en Colombia</label>
+            </div>
+            <div class="self-assess-item">
+                <input type="checkbox" id="sa4">
+                <label for="sa4">Entiendo la diferencia entre la JEP, la Comisión de la Verdad y la Unidad de Búsqueda</label>
+            </div>
+            <div class="self-assess-item">
+                <input type="checkbox" id="sa5">
+                <label for="sa5">Puedo explicar por qué las organizaciones sociales son importantes en la construcción de paz</label>
+            </div>
+            <div class="self-assess-item">
+                <input type="checkbox" id="sa6">
+                <label for="sa6">Puedo reflexionar sobre mi rol como ciudadano en la construcción de una cultura de paz</label>
+            </div>
+            <div class="highlight-box" style="margin-top: 1.5rem;">
+                <h4>📊 ¿Cómo te fue?</h4>
+                <p><strong>6 marcadas:</strong> ¡Excelente! Dominas el tema. 🌟</p>
+                <p><strong>4-5 marcadas:</strong> ¡Muy bien! Repasa los puntos que faltan.</p>
+                <p><strong>2-3 marcadas:</strong> Necesitas reforzar algunos conceptos. Relee la guía.</p>
+                <p><strong>0-1 marcadas:</strong> ¡No te preocupes! Pide ayuda a tu docente o equipo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- EVALUACIÓN -->
+    <div class="section" id="evaluacion">
+        <div class="quiz-section">
+            <h2>📊 Evaluación Tipo ICFES</h2>
+            
+            <div class="question-card">
+                <p class="question-text">1. ¿Cuál es la diferencia principal entre "ausencia de guerra" y "construcción de paz"?</p>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">A</span>
+                    <span>No hay diferencia, son lo mismo</span>
+                </div>
+                <div class="option" data-correct="true">
+                    <span class="option-letter">B</span>
+                    <span>La construcción de paz es un proceso activo que transforma las condiciones estructurales de violencia, mientras que la ausencia de guerra es solo la falta de confrontación armada</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">C</span>
+                    <span>La paz solo se logra cuando todos los grupos armados se desmovilizan</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">D</span>
+                    <span>La construcción de paz es responsabilidad exclusiva del gobierno</span>
+                </div>
+                <div class="quiz-answer">✅ <strong>Respuesta correcta: B.</strong> La construcción de paz implica transformar las causas profundas del conflicto (desigualdad, exclusión, impunidad), no solo detener los combates.</div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">2. ¿Cuál de los siguientes NO es uno de los 6 puntos de los Acuerdos de La Habana?</p>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">A</span>
+                    <span>Reforma Rural Integral</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">B</span>
+                    <span>Participación Política</span>
+                </div>
+                <div class="option" data-correct="true">
+                    <span class="option-letter">C</span>
+                    <span>Reforma del sistema educativo</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">D</span>
+                    <span>Solución al Problema de las Drogas Ilícitas</span>
+                </div>
+                <div class="quiz-answer">✅ <strong>Respuesta correcta: C.</strong> Los 6 puntos son: Reforma Rural, Participación Política, Fin del Conflicto, Drogas Ilícitas, Víctimas, e Implementación. La reforma educativa no es un punto específico.</div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">3. ¿Cuál es la función principal de la JEP (Jurisdicción Especial para la Paz)?</p>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">A</span>
+                    <span>Castigar con penas de prisión a todos los combatientes</span>
+                </div>
+                <div class="option" data-correct="true">
+                    <span class="option-letter">B</span>
+                    <span>Juzgar a los responsables de crímenes graves cometidos durante el conflicto, priorizando la verdad y la reparación a las víctimas</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">C</span>
+                    <span>Representar legalmente al gobierno en los diálogos de paz</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">D</span>
+                    <span>Controlar los presupuestos destinados a los acuerdos</span>
+                </div>
+                <div class="quiz-answer">✅ <strong>Respuesta correcta: B.</strong> La JEP es un tribunal temporal que busca la verdad, la justicia y la reparación, con sanciones distintas a la prisión tradicional (restricción efectiva de libertad, trabajos en beneficio de la comunidad).</div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">4. ¿Qué estrategia utiliza la Ruta Pacífica de las Mujeres para construir paz?</p>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">A</span>
+                    <span>Participación en elecciones políticas</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">B</span>
+                    <span>Creación de empresas privadas</span>
+                </div>
+                <div class="option" data-correct="true">
+                    <span class="option-letter">C</span>
+                    <span>Resistencia civil no violenta y movilización nacional de mujeres</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">D</span>
+                    <span>Entrenamiento militar para comunidades</span>
+                </div>
+                <div class="quiz-answer">✅ <strong>Respuesta correcta: C.</strong> La Ruta Pacífica utiliza marchas nacionales, resistencia civil no violenta y la articulación de mujeres como estrategia principal.</div>
+            </div>
+
+            <div class="question-card">
+                <p class="question-text">5. ¿Por qué se considera que las organizaciones sociales son actores fundamentales en la construcción de paz?</p>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">A</span>
+                    <span>Porque tienen más dinero que el gobierno</span>
+                </div>
+                <div class="option" data-correct="true">
+                    <span class="option-letter">B</span>
+                    <span>Porque representan las demandas de las comunidades, documentan violaciones de derechos humanos y proponen soluciones desde los territorios</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">C</span>
+                    <span>Porque controlan las zonas de conflicto</span>
+                </div>
+                <div class="option" data-correct="false">
+                    <span class="option-letter">D</span>
+                    <span>Porque reemplazan al gobierno en todas sus funciones</span>
+                </div>
+                <div class="quiz-answer">✅ <strong>Respuesta correcta: B.</strong> Las organizaciones sociales son fundamentales porque dan voz a las comunidades afectadas, documentan la verdad, proponen alternativas y construyen convivencia desde abajo.</div>
+            </div>
+
+            <button class="btn-check" onclick="checkQuiz()">🔍 Verificar respuestas</button>
+        </div>
+    </div>
+
+    <!-- RÚBRICA -->
+    <div class="section" id="rubrica">
+        <div class="section-header">
+            <div class="section-number">10</div>
+            <h2 class="section-title">📋 Rúbrica de Evaluación</h2>
+        </div>
+        <div style="overflow-x: auto;">
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterio</th>
+                        <th>Sobresaliente (5)</th>
+                        <th>Notable (4)</th>
+                        <th>Bueno (3)</th>
+                        <th>Suficiente (2)</th>
+                        <th>Insuficiente (1)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comprensión de conceptos</td>
+                        <td>Explica con claridad los conceptos de paz, conflicto y resolución, usando ejemplos propios</td>
+                        <td>Explica la mayoría de conceptos con claridad</td>
+                        <td>Explica algunos conceptos con apoyo del texto</td>
+                        <td>Identifica conceptos pero no los diferencia</td>
+                        <td>No logra explicar los conceptos</td>
+                    </tr>
+                    <tr>
+                        <td>Análisis de Acuerdos</td>
+                        <td>Analiza críticamente los 6 puntos, identificando avances y desafíos</td>
+                        <td>Analiza al menos 4 puntos con comprensión adecuada</td>
+                        <td>Describe al menos 3 puntos sin análisis crítico</td>
+                        <td>Menciona los acuerdos sin profundizar</td>
+                        <td>No logra describir los acuerdos</td>
+                    </tr>
+                    <tr>
+                        <td>Conocimiento de organizaciones</td>
+                        <td>Identifica y caracteriza 5+ organizaciones, explicando su estrategia de paz</td>
+                        <td>Identifica 4 organizaciones y sus funciones</td>
+                        <td>Identifica 3 organizaciones</td>
+                        <td>Identifica 1-2 organizaciones sin profundizar</td>
+                        <td>No logra identificar organizaciones</td>
+                    </tr>
+                    <tr>
+                        <td>Participación en debate</td>
+                        <td>Argumenta con evidencia, escucha activamente y construye consensos</td>
+                        <td>Argumenta con ejemplos y respeta opiniones</td>
+                        <td>Participa pero con argumentos débiles</td>
+                        <td>Participa poco, sin argumentación</td>
+                        <td>No participa en el debate</td>
+                    </tr>
+                    <tr>
+                        <td>Reflexión personal</td>
+                        <td>Reflexiona profundamente sobre su rol ciudadano, proponiendo acciones concretas</td>
+                        <td>Reflexiona con ejemplos personales</td>
+                        <td>Reflexiona de forma general</td>
+                        <td>Reflexión superficial</td>
+                        <td>No logra reflexionar</td>
+                    </tr>
+                    <tr>
+                        <td>Trabajo en equipo</td>
+                        <td>Lidera, contribuye ideas valiosas y ayuda a sus compañeros</td>
+                        <td>Colabora activamente en todas las actividades</td>
+                        <td>Colabora cuando se le pide</td>
+                        <td>Colabora mínimamente</td>
+                        <td>No trabaja en equipo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- RECURSOS -->
+    <div class="section">
+        <div class="section-header">
+            <div class="section-number">11</div>
+            <h2 class="section-title">📚 Recursos y Referencias</h2>
+        </div>
+        <div class="card card-accent">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">📖 Textos de apoyo</h4>
+            <ul style="padding-left: 1.5rem; line-height: 2;">
+                <li>Comisión de la Verdad (2022). <em>No hay futuro sin verdad: Informe final</em>. Bogotá.</li>
+                <li>Centro Nacional de Memoria Histórica (2022). <em>Basta ya! Colombia: Memorias de una guerra y una cultura de resistencia</em>.</li>
+                <li>Acuerdo Final para la Terminación del Conflicto y la Construcción de una Paz Estable y Duradera (2016). La Habana.</li>
+            </ul>
+        </div>
+        <div class="card card-primary">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">🌐 Sitios web</h4>
+            <ul style="padding-left: 1.5rem; line-height: 2;">
+                <li><strong>JEP:</strong> https://www.jep.gov.co</li>
+                <li><strong>Comisión de la Verdad:</strong> https://www.comisiondelaverdad.co</li>
+                <li><strong>Unidad de Búsqueda:</strong> https://www.ubpd.gov.co</li>
+                <li><strong>Rutas del Conflicto:</strong> https://www.rutasdelconflicto.com</li>
+                <li><strong>Centro Nacional de Memoria Histórica:</strong> https://www.centrodememoriahistorica.gov.co</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <div class="quote">
+        "La paz no se firma, se construye todos los días con nuestras manos, con nuestras palabras y con nuestros actos."
+    </div>
+    <div class="quote-author">— Reflexión colectiva sobre la paz en Colombia</div>
+    <div class="footer-info">
+        <p>🏫 Institución Educativa Rafael Uribe Uribe — "Dios, Ciencia y Labor"</p>
+        <p>👨‍🏫 Docente: Carlos Andrés Caro Taborda</p>
+        <p>📚 Ciencias Sociales — Grado 10-2</p>
+        <p>📅 Guía de Aprendizaje N° 3 — Periodo 2026</p>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.option').forEach(opt => {
+    opt.addEventListener('click', function() {
+        const parent = this.closest('.question-card');
+        parent.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
+
+function checkQuiz() {
+    let correct = 0;
+    let total = document.querySelectorAll('.question-card').length;
+    document.querySelectorAll('.question-card').forEach(card => {
+        const selected = card.querySelector('.option.selected');
+        const answer = card.querySelector('.quiz-answer');
+        if (selected) {
+            if (selected.dataset.correct === 'true') {
+                selected.style.background = 'rgba(39,174,96,0.3)';
+                selected.style.borderColor = '#27ae60';
+                correct++;
+            } else {
+                selected.style.background = 'rgba(231,76,60,0.3)';
+                selected.style.borderColor = '#e74c3c';
+            }
+        }
+        if (answer) answer.classList.add('show');
+    });
+    const result = document.createElement('div');
+    result.style.cssText = 'text-align:center; margin-top:2rem; padding:1.5rem; background:rgba(255,255,255,0.1); border-radius:12px;';
+    result.innerHTML = '<h3 style="font-size:1.5rem; margin-bottom:0.5rem;">Obtuviste ' + correct + ' de ' + total + '</h3><p>' + (correct >= 4 ? '¡Excelente! 🌟' : correct >= 3 ? '¡Buen trabajo! 👍' : 'Necesitas repasar el tema 📖') + '</p>';
+    const btn = document.querySelector('.btn-check');
+    btn.parentNode.insertBefore(result, btn.nextSibling);
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+}
+
+document.querySelectorAll('.nav-btn[href^="#"]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.stat-card, .org-card, .activity-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s, transform 0.6s';
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
